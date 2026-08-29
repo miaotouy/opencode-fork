@@ -435,6 +435,11 @@ export const { use: useLayout, provider: LayoutProvider } = createSimpleContext(
 
     const [colors, setColors] = createStore<Record<string, AvatarColorKey>>({})
     const colorRequested = new Map<string, AvatarColorKey>()
+    // Tracks directories the user has explicitly chosen to open. When a
+    // directory is in this set the auto-collapse effect below will not fold it
+    // into its sandbox root, which lets separate clones of the same repo
+    // coexist as independent project-list entries.
+    const explicitlyOpened = new Set<string>()
 
     function pickAvailableColor(used: Set<string>): AvatarColorKey {
       const available = AVATAR_COLOR_KEYS.filter((c) => !used.has(c))
@@ -498,6 +503,11 @@ export const { use: useLayout, provider: LayoutProvider } = createSimpleContext(
 
       batch(() => {
         for (const project of projects) {
+          // Skip directories the user opened intentionally so that an
+          // independent clone is never silently replaced by the project that
+          // happens to list it as a (stale) sandbox.
+          if (explicitlyOpened.has(pathKey(project.worktree))) continue
+
           const root = rootFor(project.worktree)
           if (root === project.worktree) continue
 
@@ -641,12 +651,17 @@ export const { use: useLayout, provider: LayoutProvider } = createSimpleContext(
             .map((worktree) => enrich({ worktree, expanded: false }))
         }),
         open(directory: string) {
-          const root = rootFor(directory)
-          if (server.projects.list().find((x) => x.worktree === root)) return
-          void serverSync().project.loadSessions(root)
-          server.projects.open(root)
+          // Opening a directory is an explicit user action. Keep the selected
+          // checkout in the project list; the server only reports linked
+          // worktrees as sandboxes, while separate clones remain independent
+          // entries even when they share the same remote-based project ID.
+          explicitlyOpened.add(pathKey(directory))
+          if (server.projects.list().find((x) => x.worktree === directory)) return
+          void serverSync().project.loadSessions(directory)
+          server.projects.open(directory)
         },
         close(directory: string) {
+          explicitlyOpened.delete(pathKey(directory))
           server.projects.close(directory)
         },
         expand(directory: string) {

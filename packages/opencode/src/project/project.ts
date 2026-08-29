@@ -210,6 +210,14 @@ const layer = Layer.effect(
         )
     })
 
+    // Compare two absolute paths for equality. On Windows, git resolves paths
+    // through path.normalize which always returns backslash-separated strings,
+    // so separators are already consistent — we only need to fold case because
+    // NTFS is case-insensitive. pathKey() (frontend) intentionally does NOT
+    // normalise case, so this helper must not be mixed with pathKey comparisons.
+    const samePath = (left: string, right: string) =>
+      process.platform === "win32" ? left.toLowerCase() === right.toLowerCase() : left === right
+
     const fromDirectory = Effect.fn("Project.fromDirectory")(function* (directory: string) {
       yield* Effect.logInfo("fromDirectory", { directory })
 
@@ -217,9 +225,67 @@ const layer = Layer.effect(
       const worktree = data.id === ProjectV2.ID.make("global") && !data.vcs ? "/" : data.directory
 
       // Phase 2: upsert
+      //
+      // ProjectV2 intentionally gives linked worktrees and separate clones the
+      // same ID when they have the same origin. They are only sandboxes when
+      // they share Git's common directory, though. A separate clone must stay
+      // selectable as its own directory in the app instead of being folded
+      // into the first checkout's sandbox list.
       const projectID = ProjectV2.ID.make(data.id)
+
+      // Keep the existing remote-based project identity, but do not merge a
+      // checkout from another Git store into that project's sandboxes.
       yield* migrateProjectId(data.previous ? ProjectV2.ID.make(data.previous) : undefined, projectID)
       const row = yield* db.select().from(ProjectTable).where(eq(ProjectTable.id, projectID)).get().pipe(Effect.orDie)
+      let rootStore: string | undefined
+      if (row && data.vcs?.type === "git") {
+        // Resolve the store of the project's existing worktree so we can tell
+        // whether the incoming directory shares the same Git object database.
+        // Two checkouts share a store only when they are linked worktrees of
+        // the same repo; independent clones will have different stores even if
+        // they point at the same remote.
+        const resolvedRoot = yield* projectV2.resolve(AbsolutePath.make(row.worktree))
+        rootStore = resolvedRoot.vcs?.type === "git" ? resolvedRoot.vcs.store : undefined
+      }
+      const currentStore = data.vcs?.type === "git" ? data.vcs.store : undefined
+      // projectStore is the canonical store to validate existing sandbox entries
+      // against: prefer the already-persisted root's store so we stay stable
+      // even if the incoming resolve races with a config change.
+      const projectStore = rootStore ?? currentStore
+      // A directory qualifies as a sandbox only when it is a linked worktree,
+      // i.e. it shares the exact same Git common directory as the project root.
+      const sharesGitStore = !!currentStore && !!rootStore && samePath(currentStore, rootStore)
+
+      // Older versions could persist a separate clone as a sandbox. Remove
+      // that stale mapping even if the clone now resolves to a different
+      // project ID (for example after its remote configuration changed).
+      // We only attempt repair when the current directory has a known Git store;
+      // without one we cannot reliably distinguish linked worktrees from clones.
+      if (currentStore) {
+        const rows = yield* db.select().from(ProjectTable).all().pipe(Effect.orDie)
+        yield* Effect.forEach(
+          rows.filter((candidate) => candidate.sandboxes.some((sandbox) => samePath(sandbox, data.directory))),
+          (candidate) =>
+            Effect.gen(function* () {
+              const resolved = yield* projectV2.resolve(AbsolutePath.make(candidate.worktree))
+              const candidateStore = resolved.vcs?.type === "git" ? resolved.vcs.store : undefined
+              // If the candidate project has an unknown store, or its store
+              // matches ours, the mapping is still valid — leave it alone.
+              if (!candidateStore || samePath(candidateStore, currentStore)) return
+
+              const sandboxes = candidate.sandboxes.filter((sandbox) => !samePath(sandbox, data.directory))
+              const updated = yield* db
+                .update(ProjectTable)
+                .set({ sandboxes: sandboxes.map((sandbox) => AbsolutePath.make(sandbox)), time_updated: Date.now() })
+                .where(eq(ProjectTable.id, candidate.id))
+                .returning()
+                .get()
+                .pipe(Effect.orDie)
+              if (updated) yield* emitUpdated(fromRow(updated))
+            }),
+        )
+      }
+
       const existing = row
         ? fromRow(row)
         : {
@@ -241,16 +307,29 @@ const layer = Layer.effect(
       if (
         projectID !== ProjectV2.ID.global &&
         data.directory !== result.worktree &&
+        sharesGitStore &&
         !result.sandboxes.includes(data.directory)
       )
         result.sandboxes.push(data.directory)
       result.sandboxes = yield* Effect.forEach(
         result.sandboxes,
         (s) =>
-          fs.exists(s).pipe(
-            Effect.orDie,
-            Effect.map((exists) => (exists ? s : undefined)),
-          ),
+          Effect.gen(function* () {
+            const exists = yield* fs.exists(s).pipe(Effect.orDie)
+            if (!exists) return undefined
+            // Non-git projects and the global catch-all have no store concept,
+            // so we skip the store check and keep the entry as-is.
+            if (!projectStore || projectID === ProjectV2.ID.global) return s
+
+            // Also repair sandbox entries written by older versions, which
+            // treated every checkout with the same remote as a sandbox.
+            // A valid sandbox must share the same Git object database (store)
+            // as this project; anything from a different store is an
+            // independent clone and should appear as its own project.
+            const resolved = yield* projectV2.resolve(AbsolutePath.make(s))
+            if (resolved.vcs?.type !== "git" || !samePath(resolved.vcs.store, projectStore)) return undefined
+            return s
+          }),
         { concurrency: "unbounded" },
       ).pipe(Effect.map((arr) => arr.filter((x): x is string => x !== undefined)))
 

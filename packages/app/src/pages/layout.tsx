@@ -519,11 +519,16 @@ export default function LegacyLayout(props: ParentProps) {
 
     const projects = layout.projects.list()
 
-    const sandbox = projects.find((p) => p.sandboxes?.some((item) => pathKey(item) === key))
-    if (sandbox) return sandbox
-
+    // Prefer an explicitly opened checkout over a stale sandbox mapping. Two
+    // separate clones can share a project ID but must still remain selectable
+    // as independent project-list entries. Direct worktree match takes
+    // priority; sandbox lookup is only a fallback for linked-worktree paths
+    // that are opened via the URL directly rather than through the project list.
     const direct = projects.find((p) => pathKey(p.worktree) === key)
     if (direct) return direct
+
+    const sandbox = projects.find((p) => p.sandboxes?.some((item) => pathKey(item) === key))
+    if (sandbox) return sandbox
 
     const [child] = serverSync().child(directory, { bootstrap: false })
     const id = child.project
@@ -1112,9 +1117,14 @@ export default function LegacyLayout(props: ParentProps) {
 
   function projectRoot(directory: string) {
     const key = pathKey(directory)
-    const project = layout.projects
-      .list()
-      .find((item) => pathKey(item.worktree) === key || item.sandboxes?.some((sandbox) => pathKey(sandbox) === key))
+    const projects = layout.projects.list()
+    // Direct match wins: a directory that is itself an open project root must
+    // not be resolved to a different project just because an older sandbox
+    // mapping still references it.
+    const direct = projects.find((item) => pathKey(item.worktree) === key)
+    if (direct) return direct.worktree
+
+    const project = projects.find((item) => item.sandboxes?.some((sandbox) => pathKey(sandbox) === key))
     if (project) return project.worktree
 
     const known = Object.entries(store.workspaceOrder).find(

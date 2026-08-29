@@ -15,6 +15,7 @@ import { WorkspaceV2 } from "@opencode-ai/core/workspace"
 import { Cause, Effect, Exit, Layer, Stream } from "effect"
 import { ChildProcess, ChildProcessSpawner } from "effect/unstable/process"
 import { ProjectV2 } from "@opencode-ai/core/project"
+import { AbsolutePath } from "@opencode-ai/core/schema"
 import { CrossSpawnSpawner } from "@opencode-ai/core/cross-spawn-spawner"
 import { testEffect } from "../lib/effect"
 import { RuntimeFlags } from "@/effect/runtime-flags"
@@ -359,6 +360,17 @@ describe("Project.fromDirectory with worktrees", () => {
       const next = yield* project.fromDirectory(clone)
 
       expect(next.project.id).toBe(result.project.id)
+      expect(next.project.sandboxes).not.toContain(clone)
+
+      // Repair the stale sandbox data produced by older versions.
+      const { db } = yield* Database.Service
+      yield* db
+        .update(ProjectTable)
+        .set({ sandboxes: [AbsolutePath.make(clone)] })
+        .where(eq(ProjectTable.id, result.project.id))
+        .run()
+      const repaired = yield* project.fromDirectory(clone)
+      expect(repaired.project.sandboxes).not.toContain(clone)
     }),
   )
 
