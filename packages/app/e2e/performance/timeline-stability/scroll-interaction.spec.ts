@@ -12,7 +12,9 @@ import {
   setupTimeline,
   shell,
   textPart,
+  toolPart,
   userMessage,
+  userText,
   type TimelineMessage,
 } from "./fixture"
 
@@ -80,6 +82,40 @@ test("keeps moving upward while drag-selecting above the timeline", async ({ pag
     .poll(() => scroller.evaluate((element) => element.scrollHeight - element.clientHeight - element.scrollTop))
     .toBeGreaterThan(500)
   await page.mouse.up()
+})
+
+test("allows selecting across consecutive user and assistant messages", async ({ page }) => {
+  const user = "Copy from this user message."
+  const path = "src/selectable.ts"
+  const filename = "selectable.ts"
+  const assistant = "Continue through this assistant response."
+  await setupTimeline(page, {
+    messages: [
+      userMessage([userText(user)]),
+      assistantMessage([
+        toolPart("prt_selection_tool", "read", "completed", { filePath: path }, { output: "selected tool output" }),
+        textPart("prt_selection_text", assistant),
+      ]),
+    ],
+    settings: { newLayoutDesigns: true },
+    reducedMotion: true,
+  })
+  await page.getByRole("button", { name: /Explored/ }).click()
+  const userTextBox = await page.getByText(user, { exact: true }).boundingBox()
+  const toolTextBox = await page.getByText(filename, { exact: true }).boundingBox()
+  expect(userTextBox).not.toBeNull()
+  expect(toolTextBox).not.toBeNull()
+  if (!userTextBox || !toolTextBox) return
+
+  await page.mouse.move(userTextBox.x + 4, userTextBox.y + userTextBox.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(toolTextBox.x + toolTextBox.width + 2, toolTextBox.y + toolTextBox.height / 2, { steps: 20 })
+  await page.mouse.up()
+
+  const selection = await page.evaluate(() => window.getSelection()?.toString() ?? "")
+  expect(selection).toContain(user)
+  expect(selection).toContain(filename)
+  expect(selection).toContain(assistant)
 })
 
 test("does not pull a keyboard-scrolled user during shell remeasurement", async ({ page }, testInfo) => {

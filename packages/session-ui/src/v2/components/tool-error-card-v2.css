@@ -97,7 +97,8 @@
     line-height: 20px;
     letter-spacing: -0.04px;
     color: var(--tec-title);
-    user-select: none;
+    -webkit-user-select: text;
+    user-select: text;
   }
 
   [data-slot="tool-error-card-sep"] {
@@ -111,7 +112,8 @@
     line-height: 20px;
     letter-spacing: 0.05px;
     color: var(--tec-sep);
-    user-select: none;
+    -webkit-user-select: text;
+    user-select: text;
   }
 
   [data-slot="tool-error-card-subtitle"] {
@@ -129,7 +131,8 @@
     line-height: 20px;
     letter-spacing: -0.04px;
     color: var(--tec-subtitle);
-    user-select: none;
+    -webkit-user-select: text;
+    user-select: text;
   }
 
   a[data-slot="tool-error-card-subtitle"] {
@@ -149,7 +152,8 @@
     color: inherit;
     text-decoration: underline;
     text-underline-offset: 2px;
-    user-select: none;
+    -webkit-user-select: text;
+    user-select: text;
   }
 
   [data-slot="tool-error-card-chevron-wrap"] {

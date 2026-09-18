@@ -260,6 +260,8 @@ export function BasicTool(props: BasicToolProps) {
         when={props.triggerAsLink || props.triggerHref}
         fallback={
           <Collapsible.Trigger
+            as="div"
+            role="button"
             data-hide-details={props.hideDetails ? "true" : undefined}
             onClick={props.onTriggerClick}
           >

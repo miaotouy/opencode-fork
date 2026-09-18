@@ -1069,7 +1069,7 @@ export function ContextToolGroup(props: {
       class="tool-collapsible"
       data-timeline-part-ids={props.parts.map((part) => part.id).join(",")}
     >
-      <Collapsible.Trigger>
+      <Collapsible.Trigger as="div" role="button">
         <div data-component="context-tool-group-trigger">
           <span
             data-slot="context-tool-group-title"

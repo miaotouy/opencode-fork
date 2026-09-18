@@ -1,3 +1,23 @@
+[data-timeline-virtual-content] {
+  -webkit-user-select: text;
+  user-select: text;
+
+  [data-slot="collapsible-trigger"] {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  [data-slot="collapsible-arrow"],
+  [data-slot="user-message-copy-wrapper"],
+  [data-slot="text-part-copy-wrapper"],
+  [data-component="context-tool-group-trigger"],
+  [data-component="animated-count-list"],
+  [data-slot="text-shimmer-char-shimmer"],
+  [data-slot="text-shimmer-v2-shimmer"] {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
 [data-component="session-turn"] {
   --sticky-header-height: calc(var(--session-title-height, 0px) + 24px);
   height: 100%;
