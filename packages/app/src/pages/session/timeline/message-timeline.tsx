@@ -509,6 +509,20 @@ export function MessageTimeline(props: {
 
   let overscanFrame: number | undefined
   onMount(() => {
+    const copySelection = (event: ClipboardEvent) => {
+      const selection = window.getSelection()
+      const clipboard = event.clipboardData
+      if (!virtualContent || !selection || selection.isCollapsed || !clipboard) return
+      if (!virtualContent.contains(selection.anchorNode) || !virtualContent.contains(selection.focusNode)) return
+      const text = selection.toString()
+      if (!text) return
+      clipboard.setData("text/plain", text)
+      event.preventDefault()
+    }
+
+    document.addEventListener("copy", copySelection)
+    onCleanup(() => document.removeEventListener("copy", copySelection))
+
     overscanFrame = requestAnimationFrame(() => {
       if (props.shouldAnchorBottom()) virtualizer.scrollToEnd()
       overscanFrame = requestAnimationFrame(() => {

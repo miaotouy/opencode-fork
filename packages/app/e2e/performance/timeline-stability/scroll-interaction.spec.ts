@@ -116,6 +116,17 @@ test("allows selecting across consecutive user and assistant messages", async ({
   expect(selection).toContain(user)
   expect(selection).toContain(filename)
   expect(selection).toContain(assistant)
+
+  const copied = await page.evaluate(() => {
+    const clipboard = new DataTransfer()
+    const event = new ClipboardEvent("copy", { bubbles: true, cancelable: true, clipboardData: clipboard })
+    document.dispatchEvent(event)
+    return { prevented: event.defaultPrevented, text: clipboard.getData("text/plain") }
+  })
+  expect(copied.prevented).toBe(true)
+  expect(copied.text).toContain(user)
+  expect(copied.text).toContain(filename)
+  expect(copied.text).toContain(assistant)
 })
 
 test("does not pull a keyboard-scrolled user during shell remeasurement", async ({ page }, testInfo) => {
