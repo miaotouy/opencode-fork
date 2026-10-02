@@ -1078,11 +1078,14 @@ const layer = Layer.effect(
       throw new Error("Impossible")
     })
 
+    const CONTENT_FILTER_MAX_RETRIES = 2
+
     const runLoop: (sessionID: SessionID) => Effect.Effect<SessionV1.WithParts> = Effect.fn("SessionPrompt.run")(
       function* (sessionID: SessionID) {
         const ctx = yield* InstanceState.context
         let structured: unknown
         let step = 0
+        let contentFilterStops = 0
         const session = yield* sessions.get(sessionID).pipe(Effect.orDie)
 
         while (true) {
@@ -1295,16 +1298,35 @@ const layer = Layer.effect(
             const finished = handle.message.finish && !["tool-calls", "unknown"].includes(handle.message.finish)
             if (finished && !handle.message.error) {
               // Surface any content-filter finish (e.g. Anthropic stop_reason:
-              // refusal) as an error. These turns may have produced no visible
-              // output at all — previously the session went idle silently — or
-              // partial text that was cut off by the provider's filter.
+              // refusal, Gemini SAFETY) as an error. These turns may have
+              // produced no visible output at all — previously the session
+              // went idle silently — or partial text that was cut off by the
+              // provider's filter. Name the model so relay/gateway false
+              // positives are recognizable, and point at retry since filters
+              // often clear on a resend or model switch.
               if (handle.message.finish === "content-filter") {
-                handle.message.error = new SessionV1.ContentFilterError({
-                  message: "The response was blocked by the provider's content filter",
-                }).toObject()
+                // Relay-side filters (e.g. Gemini SAFETY through NewAPI-style
+                // gateways) fire nondeterministically mid-task. Keep the agent
+                // loop alive: clear the finish so the next provider turn can
+                // proceed, and cap consecutive blocks to avoid a filter loop.
+                contentFilterStops++
+                yield* events.publish(Session.Event.Error, {
+                  sessionID,
+                  error: new SessionV1.ContentFilterError({
+                    message: `The response was blocked by the provider's content filter (${model.providerID}/${model.id}), retrying (attempt ${contentFilterStops}/${CONTENT_FILTER_MAX_RETRIES}). Retries often succeed; switch models if this keeps happening.`,
+                  }).toObject(),
+                })
+                if (isLastStep || contentFilterStops > CONTENT_FILTER_MAX_RETRIES) {
+                  handle.message.error = new SessionV1.ContentFilterError({
+                    message: `The response was blocked by the provider's content filter (${model.providerID}/${model.id}). The provider or relay flagged the output; resend the message or switch models.`,
+                  }).toObject()
+                  yield* sessions.updateMessage(handle.message)
+                  yield* events.publish(Session.Event.Error, { sessionID, error: handle.message.error })
+                  return "break" as const
+                }
+                handle.message.finish = undefined
                 yield* sessions.updateMessage(handle.message)
-                yield* events.publish(Session.Event.Error, { sessionID, error: handle.message.error })
-                return "break" as const
+                return "continue" as const
               }
               if (format.type === "json_schema") {
                 handle.message.error = new SessionV1.StructuredOutputError({

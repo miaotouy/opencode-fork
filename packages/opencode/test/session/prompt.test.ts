@@ -636,10 +636,6 @@ it.instance("loop surfaces content-filter finishes as session errors", () =>
     const sessions = yield* Session.Service
     const chat = yield* sessions.create({ title: "Pinned" })
     const errors: NonNullable<SessionV1.Assistant["error"]>[] = []
-    const expected = {
-      name: "ContentFilterError",
-      data: { message: "The response was blocked by the provider's content filter" },
-    } satisfies NonNullable<SessionV1.Assistant["error"]>
     const off = yield* events.listen((event) => {
       if (event.type !== Session.Event.Error.type) return Effect.void
       const data = event.data as typeof Session.Event.Error.data.Type
@@ -653,24 +649,27 @@ it.instance("loop surfaces content-filter finishes as session errors", () =>
       noReply: true,
       parts: [{ type: "text", text: "hello" }],
     })
+    // First response trips the filter; the retry that follows falls through to
+    // the mock server's default "ok" reply.
     yield* llm.push(reply().text("partial response").contentFilter())
 
     const result = yield* prompt.loop({ sessionID: chat.id })
     const stored = yield* MessageV2.get({ sessionID: chat.id, messageID: result.info.id })
     yield* off
 
-    expect(yield* llm.hits).toHaveLength(1)
+    // The filter finish surfaces an error notice, then the loop keeps going.
+    expect(yield* llm.hits).toHaveLength(2)
+    expect(errors.length).toBeGreaterThanOrEqual(1)
+    expect(errors[0]?.name).toBe("ContentFilterError")
     expect(result.info.role).toBe("assistant")
     expect(stored.info.role).toBe("assistant")
     if (result.info.role === "assistant" && stored.info.role === "assistant") {
-      expect(result.info.finish).toBe("content-filter")
-      expect(result.info.error).toEqual(expected)
-      expect(stored.info.error).toEqual(result.info.error)
-      expect(errors).toContainEqual(expected)
+      expect(result.info.finish).toBe("stop")
+      expect(result.info.error).toBeUndefined()
+      expect(stored.info.error).toBeUndefined()
     }
-    expect(result.parts).toEqual(
-      expect.arrayContaining([expect.objectContaining({ type: "text", text: "partial response" })]),
-    )
+    // The retried turn completes with the mock server's default "ok" reply.
+    expect(result.parts).toEqual(expect.arrayContaining([expect.objectContaining({ type: "text", text: "ok" })]))
   }),
 )
 

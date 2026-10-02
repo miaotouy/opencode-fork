@@ -126,8 +126,10 @@ export class TransportReason extends Schema.Class<TransportReason>("LLM.Error.Tr
   url: Schema.optional(Schema.String),
   http: Schema.optional(HttpContext),
 }) {
+  // Connection resets, proxy churn, and header timeouts are transient — retry
+  // at the transport layer instead of failing the whole agent turn.
   get retryable() {
-    return false
+    return true
   }
 }
 

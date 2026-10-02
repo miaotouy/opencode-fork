@@ -144,6 +144,7 @@ describe("RequestExecutor", () => {
         },
       })
       expect(errorHttp(error)?.body).toBe("rate limited")
+      expect(error.message).toContain("Provider request failed with HTTP 429: rate limited")
     }).pipe(
       Effect.provide(
         responsesLayer(
@@ -265,6 +266,24 @@ describe("RequestExecutor", () => {
     ),
   )
 
+  it.effect("retries relay gateway errors like 502 and 500 before returning the stream", () =>
+    Effect.gen(function* () {
+      const executor = yield* RequestExecutor.Service
+      const response = yield* executor.execute(request)
+
+      expect(response.status).toBe(200)
+      expect(yield* response.text).toBe("ok")
+    }).pipe(
+      Effect.provide(
+        responsesLayer([
+          new Response("bad gateway", { status: 502, headers: { "retry-after-ms": "0" } }),
+          new Response("internal error", { status: 500, headers: { "retry-after-ms": "0" } }),
+          new Response("ok", { status: 200 }),
+        ]),
+      ),
+    ),
+  )
+
   it.effect("marks 504 and 529 status responses retryable", () =>
     Effect.gen(function* () {
       const failWith = (status: number) =>
@@ -311,6 +330,33 @@ describe("RequestExecutor", () => {
           new Response("x".repeat(20_000), { status: 401 }),
           new Response("should not retry", { status: 200 }),
         ]),
+      ),
+    ),
+  )
+
+  it.effect("keeps large upstream bodies in the error message, truncated to the body limit", () =>
+    Effect.gen(function* () {
+      const executor = yield* RequestExecutor.Service
+      const fiber = yield* executor.execute(request).pipe(Effect.flip, Effect.forkChild)
+
+      yield* Effect.yieldNow
+      yield* TestClock.adjust(500)
+      yield* Effect.yieldNow
+      yield* TestClock.adjust(1000)
+      const error = yield* Fiber.join(fiber)
+
+      expectLLMError(error)
+      expect(error.message).toContain("Provider request failed with HTTP 502: ")
+      expect(error.message.length).toBeGreaterThan(16_384)
+      expect(errorHttp(error)?.bodyTruncated).toBe(true)
+    }).pipe(
+      Effect.provide(
+        responsesLayer(
+          Array.from(
+            { length: 3 },
+            () => new Response("x".repeat(20_000), { status: 502, headers: { "retry-after-ms": "0" } }),
+          ),
+        ),
       ),
     ),
   )

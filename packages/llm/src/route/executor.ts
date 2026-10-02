@@ -88,7 +88,10 @@ const requestId = (headers: Record<string, string>) => {
   )
 }
 
-const retryableStatus = (status: number) => status === 429 || status === 503 || status === 504 || status === 529
+// Retry any 5xx plus 429. Gateways and relays (NewAPI, nginx, Cloudflare)
+// routinely answer transient upstream churn with 500/502, and one-shot
+// failures there would otherwise abort the whole agent turn.
+const retryableStatus = (status: number) => status === 429 || status >= 500
 
 const retryAfterMs = (headers: Record<string, string>) => {
   const millis = Number(headers["retry-after-ms"])
@@ -202,8 +205,11 @@ const responseBody = (body: string | void, request: HttpClientRequest.HttpClient
 }
 
 const providerMessage = (status: number, body: { readonly body?: string }) => {
-  if (body.body && body.body.length <= 500) return `Provider request failed with HTTP ${status}: ${body.body}`
-  return `Provider request failed with HTTP ${status}`
+  // Surface the upstream body verbatim (already redacted and size-capped by
+  // `responseBody`) so relay/gateway errors stay diagnosable. Only the HTTP
+  // status line stands alone when the provider returned no body at all.
+  if (body.body) return `Provider request failed with HTTP ${status}: ${body.body}`
+  return `Provider request failed with HTTP ${status} (no body)`
 }
 
 const responseHttp = (input: {
