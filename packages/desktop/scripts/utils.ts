@@ -72,6 +72,8 @@ export function getCurrentCli(target = RUST_TARGET ?? nativeTarget()) {
 export async function downloadCliToResources() {
   const cli = getCurrentCli()
   const directory = await mkdtemp(join(tmpdir(), "opencode-cli-"))
+  // bun 1.4+ 在没有 package.json 的目录里会静默跳过安装
+  await Bun.write(join(directory, "package.json"), JSON.stringify({ name: "opencode-cli-download", private: true }))
   const dest = windowsify("resources/opencode-cli")
   try {
     await $`bun install --no-save --cwd ${directory} ${`${cli.package}@${CLI_VERSION}`} ${`--os=${cli.os}`} ${`--cpu=${cli.cpu}`}`

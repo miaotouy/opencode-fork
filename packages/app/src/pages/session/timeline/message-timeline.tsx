@@ -1441,7 +1441,7 @@ export function MessageTimeline(props: {
                       size="small"
                       variant="ghost-muted"
                       class="ml-0.5 shrink-0 text-v2-text-text-faint"
-                      icon="plus"
+                      icon={<IconV2 name="plus" />}
                       onClick={openWorkspaceSession}
                       aria-label={language.t("command.session.new")}
                     />
