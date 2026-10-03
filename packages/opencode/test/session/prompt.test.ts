@@ -35,6 +35,7 @@ import { SessionSummary } from "../../src/session/summary"
 import { Instruction } from "../../src/session/instruction"
 import { SessionProcessor } from "../../src/session/processor"
 import { SessionPrompt } from "../../src/session/prompt"
+import { ToolCallFormat } from "../../src/session/tool-call-format"
 import { SessionRevert } from "../../src/session/revert"
 import { SessionRunState } from "../../src/session/run-state"
 import { MessageID, PartID, SessionID } from "../../src/session/schema"
@@ -670,6 +671,64 @@ it.instance("loop surfaces content-filter finishes as session errors", () =>
     }
     // The retried turn completes with the mock server's default "ok" reply.
     expect(result.parts).toEqual(expect.arrayContaining([expect.objectContaining({ type: "text", text: "ok" })]))
+  }),
+)
+
+it.instance("loop retries when tool-call markup leaks into text", () =>
+  Effect.gen(function* () {
+    const { llm } = yield* useServerConfig(providerCfg)
+    const prompt = yield* SessionPrompt.Service
+    const sessions = yield* Session.Service
+    const chat = yield* sessions.create({ title: "Pinned" })
+
+    yield* prompt.prompt({
+      sessionID: chat.id,
+      agent: "build",
+      noReply: true,
+      parts: [{ type: "text", text: "hello" }],
+    })
+    // The model prints its tool-call envelope as plain text and reports a
+    // normal stop; the retry falls through to the mock server's default "ok".
+    yield* llm.push(reply().text("改掉 dp 部分。｜｜DSML｜｜ invoke ｜｜DSML｜｜ calls").stop())
+
+    const result = yield* prompt.loop({ sessionID: chat.id })
+
+    expect(yield* llm.hits).toHaveLength(2)
+    expect(result.info.role).toBe("assistant")
+    if (result.info.role === "assistant") {
+      expect(result.info.finish).toBe("stop")
+      expect(result.parts.some((part) => part.type === "text" && part.text === "ok")).toBe(true)
+    }
+    const messages = yield* sessions.messages({ sessionID: chat.id })
+    const reminder = messages.find((message) =>
+      message.parts.some((part) => part.type === "text" && part.text === ToolCallFormat.REMINDER),
+    )
+    expect(reminder?.info.role).toBe("user")
+  }),
+)
+
+it.instance("loop skips tool-call format retry when disabled", () =>
+  Effect.gen(function* () {
+    const { llm } = yield* useServerConfig((url) => ({
+      ...providerCfg(url),
+      experimental: { tool_call_format_retry: false },
+    }))
+    const prompt = yield* SessionPrompt.Service
+    const sessions = yield* Session.Service
+    const chat = yield* sessions.create({ title: "Pinned" })
+
+    yield* prompt.prompt({
+      sessionID: chat.id,
+      agent: "build",
+      noReply: true,
+      parts: [{ type: "text", text: "hello" }],
+    })
+    yield* llm.push(reply().text("改掉 dp 部分。｜｜DSML｜｜ invoke ｜｜DSML｜｜ calls").stop())
+
+    const result = yield* prompt.loop({ sessionID: chat.id })
+
+    expect(yield* llm.hits).toHaveLength(1)
+    expect(result.parts.some((part) => part.type === "text" && part.text === ToolCallFormat.REMINDER)).toBe(false)
   }),
 )
 

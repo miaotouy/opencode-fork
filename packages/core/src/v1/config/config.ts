@@ -179,6 +179,18 @@ export const Info = Schema.Struct({
       continue_loop_on_deny: Schema.optional(Schema.Boolean).annotate({
         description: "Continue the agent loop when a tool call is denied",
       }),
+      tool_call_format_retry: Schema.optional(Schema.Boolean).annotate({
+        description:
+          "Detect tool calls that were written as plain text or reasoning instead of emitted through the tool-calling channel, and prompt the model to retry with the correct format (default: true)",
+      }),
+      tool_call_format_max_retries: Schema.optional(NonNegativeInt).annotate({
+        description:
+          "Maximum consecutive retries after a leaked tool-call format is detected before the turn fails (default: 2)",
+      }),
+      tool_call_format_patterns: Schema.optional(Schema.mutable(Schema.Array(Schema.String))).annotate({
+        description:
+          "Extra case-insensitive regular expressions matched against assistant text and reasoning to detect leaked tool-call markup, in addition to the built-in markers",
+      }),
       mcp_timeout: Schema.optional(PositiveInt).annotate({
         description: "Timeout in milliseconds for model context protocol (MCP) requests",
       }),

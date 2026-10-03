@@ -55,6 +55,7 @@ import { eq } from "drizzle-orm"
 import { SessionTable } from "@opencode-ai/core/session/sql"
 import { SessionReminders } from "./reminders"
 import { SessionTools } from "./tools"
+import { ToolCallFormat } from "./tool-call-format"
 import { LLMEvent } from "@opencode-ai/llm"
 
 // @ts-ignore
@@ -1079,6 +1080,7 @@ const layer = Layer.effect(
     })
 
     const CONTENT_FILTER_MAX_RETRIES = 2
+    const TOOL_CALL_FORMAT_MAX_RETRIES = 2
 
     const runLoop: (sessionID: SessionID) => Effect.Effect<SessionV1.WithParts> = Effect.fn("SessionPrompt.run")(
       function* (sessionID: SessionID) {
@@ -1086,6 +1088,7 @@ const layer = Layer.effect(
         let structured: unknown
         let step = 0
         let contentFilterStops = 0
+        let toolCallFormatRetries = 0
         const session = yield* sessions.get(sessionID).pipe(Effect.orDie)
 
         while (true) {
@@ -1327,6 +1330,61 @@ const layer = Layer.effect(
                 handle.message.finish = undefined
                 yield* sessions.updateMessage(handle.message)
                 return "continue" as const
+              }
+              // Some models print their native tool-call envelope as plain text
+              // (in the body or reasoning) when the endpoint does not translate
+              // it into structured calls. Treat a finished turn with leaked
+              // markup and no executed tool as a format failure and ask the
+              // model to retry through the tool-calling channel.
+              const experimental = (yield* config.get()).experimental
+              if (experimental?.tool_call_format_retry !== false) {
+                const parts = yield* MessageV2.parts(handle.message.id).pipe(
+                  Effect.provideService(Database.Service, database),
+                )
+                const ranTool = parts.some((part) => part.type === "tool")
+                const leakedText = parts
+                  .filter(
+                    (part): part is SessionV1.TextPart | SessionV1.ReasoningPart =>
+                      part.type === "text" || part.type === "reasoning",
+                  )
+                  .map((part) => part.text)
+                  .join("\n")
+                if (!ranTool && ToolCallFormat.leaked(leakedText, experimental?.tool_call_format_patterns)) {
+                  toolCallFormatRetries++
+                  const maxRetries = experimental?.tool_call_format_max_retries ?? TOOL_CALL_FORMAT_MAX_RETRIES
+                  yield* Effect.logInfo("tool call format leak detected", {
+                    "session.id": sessionID,
+                    messageID: handle.message.id,
+                    attempt: toolCallFormatRetries,
+                    maxRetries,
+                  })
+                  if (isLastStep || toolCallFormatRetries > maxRetries) {
+                    handle.message.error = new NamedError.Unknown({
+                      message: `The model wrote a tool call as plain text instead of using the tool-calling channel (${model.providerID}/${model.id}). Retried ${toolCallFormatRetries} times without success.`,
+                    }).toObject()
+                    yield* sessions.updateMessage(handle.message)
+                    yield* events.publish(Session.Event.Error, { sessionID, error: handle.message.error })
+                    return "break" as const
+                  }
+                  const reminder: SessionV1.User = {
+                    id: MessageID.ascending(),
+                    sessionID,
+                    role: "user",
+                    time: { created: Date.now() },
+                    agent: lastUser.agent,
+                    model: lastUser.model,
+                  }
+                  yield* sessions.updateMessage(reminder)
+                  yield* sessions.updatePart({
+                    id: PartID.ascending(),
+                    messageID: reminder.id,
+                    sessionID,
+                    type: "text",
+                    text: ToolCallFormat.REMINDER,
+                    synthetic: true,
+                  } satisfies SessionV1.TextPart)
+                  return "continue" as const
+                }
               }
               if (format.type === "json_schema") {
                 handle.message.error = new SessionV1.StructuredOutputError({
