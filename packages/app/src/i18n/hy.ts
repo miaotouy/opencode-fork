@@ -1162,4 +1162,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} նիստերը կարխիվացվեն։",
   "workspace.reset.note": "Սա կվերակայի աշխատանքային տարածքը, որպեսզի համապատասխանի լռելյայն ճյուղին:",
   "dialog.usageExceeded.dontShowAgain": "Այլևս չցուցադրել",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Ցուցադրել աշխատանքային տարածքը նիստերի ներդիրներում",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Նիստերի ներդիրների վերնագրերի սկզբում ցուցադրել աշխատանքային տարածքի անունը",
+  "settings.general.row.sessionBreadcrumbs.title": "Ցուցադրել նիստի հացի փշրանքները",
+  "settings.general.row.sessionBreadcrumbs.description": "Ժամանակագծի վերևում ցուցադրել աշխատանքային տարածքի անունը և ծնողական նիստերը",
 }

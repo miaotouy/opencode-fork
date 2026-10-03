@@ -1165,4 +1165,8 @@ export const dict = {
   "help.tabs.persistence": "Kun avaat sovelluksen uudelleen, välilehtesi ovat yhä avoinna.",
   "help.tabs.worktrees":
     "Uusi ulkoasu ei vielä tue Git-työpuita, mutta tuki on tulossa pian. Jos haluat jatkaa aiemman ulkoasun käyttöä, voit vaihtaa ulkoasua asetuksissa. Huomaa kuitenkin, että uudesta ulkoasusta tulee pysyvä muutaman viikon kuluttua.",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Näytä työtila istuntovälilehdessä",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Näytä työtilan nimi istuntovälilehden otsikon edessä",
+  "settings.general.row.sessionBreadcrumbs.title": "Näytä istunnon polunäyttö",
+  "settings.general.row.sessionBreadcrumbs.description": "Näytä työtilan nimi ja ylemmät istunnot aikajanan yläpuolella",
 }

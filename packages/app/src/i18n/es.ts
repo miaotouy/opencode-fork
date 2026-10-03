@@ -1262,4 +1262,8 @@ export const dict = {
   "error.childStore.persistedProjectIconCreateFailed": "Error al crear icono de proyecto persistente",
   "error.childStore.storeCreateFailed": "Error al crear almacén",
   "terminal.connectionLost.abnormalClose": "WebSocket cerrado anormalmente: {{code}}",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Mostrar el espacio de trabajo en las pestañas de sesión",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Anteponer el nombre del espacio de trabajo a los títulos de las pestañas de sesión",
+  "settings.general.row.sessionBreadcrumbs.title": "Mostrar las migas de pan de la sesión",
+  "settings.general.row.sessionBreadcrumbs.description": "Mostrar el nombre del espacio de trabajo y las sesiones principales sobre la línea de tiempo",
 }

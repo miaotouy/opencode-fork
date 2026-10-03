@@ -1259,4 +1259,8 @@ export const dict = {
   "error.childStore.persistedProjectIconCreateFailed": "Не удалось создать постоянный значок проекта",
   "error.childStore.storeCreateFailed": "Не удалось создать хранилище",
   "terminal.connectionLost.abnormalClose": "WebSocket закрыт аварийно: {{code}}",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Показывать рабочее пространство во вкладках сессий",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Добавлять имя рабочего пространства перед заголовками вкладок сессий",
+  "settings.general.row.sessionBreadcrumbs.title": "Показывать навигационную цепочку сессии",
+  "settings.general.row.sessionBreadcrumbs.description": "Показывать имя рабочего пространства и родительские сессии над хронологией",
 }

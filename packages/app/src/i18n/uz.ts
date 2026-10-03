@@ -1168,4 +1168,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} seanslari arxivlanadi.",
   "workspace.reset.note": "Bu standart filialga mos keladigan ish maydonini tiklaydi.",
   "dialog.usageExceeded.dontShowAgain": "Boshqa ko‘rsatma",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Seans yorliqlarida ish joyini ko'rsatish",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Seans yorlig'i sarlavhalaridan oldin ish joyi nomini ko'rsatish",
+  "settings.general.row.sessionBreadcrumbs.title": "Seans navigatsiya yo'lini ko'rsatish",
+  "settings.general.row.sessionBreadcrumbs.description": "Vaqt jadvali ustida ish joyi nomi va asosiy seanslarni ko'rsatish",
 }

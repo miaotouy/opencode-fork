@@ -1164,4 +1164,8 @@ export const dict = {
 
   "desktop.picker.error.notSelected": "선택기에서 파일을 선택하지 않았습니다",
   "desktop.picker.error.sizeLimit": "선택한 첨부 파일이 {{limit}} MB 제한을 초과합니다",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "세션 탭에 작업 공간 표시",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "세션 탭 제목 앞에 작업 공간 이름 표시",
+  "settings.general.row.sessionBreadcrumbs.title": "세션 탐색 경로 표시",
+  "settings.general.row.sessionBreadcrumbs.description": "타임라인 위에 작업 공간 이름과 상위 세션 표시",
 }

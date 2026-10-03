@@ -788,6 +788,10 @@ export const dict = {
   "settings.general.row.editToolPartsExpanded.title": "Edit-Tool-Abschnitte ausklappen",
   "settings.general.row.editToolPartsExpanded.description":
     "Edit-, Write- und Patch-Tool-Abschnitte standardmäßig in der Timeline ausgeklappt anzeigen",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Workspace in Sitzungs-Tabs anzeigen",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Sitzungs-Tabs mit dem Workspace-Namen präfixieren",
+  "settings.general.row.sessionBreadcrumbs.title": "Sitzungs-Breadcrumbs anzeigen",
+  "settings.general.row.sessionBreadcrumbs.description": "Workspace-Namen und übergeordnete Sitzungen über dem Verlauf anzeigen",
   "settings.general.row.newInterface.title": "Neues Layout",
   "settings.general.row.newInterface.badge": "Neu",
   "settings.general.row.newInterface.description":

@@ -1154,4 +1154,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} sesi akan diarkibkan.",
   "workspace.reset.note": "Ini akan menetap semula ruang kerja agar sepadan dengan cawangan lalai.",
   "dialog.usageExceeded.dontShowAgain": "Jangan tunjukkan lagi",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Tunjuk ruang kerja dalam tab sesi",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Awali tajuk tab sesi dengan nama ruang kerja",
+  "settings.general.row.sessionBreadcrumbs.title": "Tunjuk laluan sesi",
+  "settings.general.row.sessionBreadcrumbs.description": "Tunjuk nama ruang kerja dan sesi induk di atas garis masa",
 }

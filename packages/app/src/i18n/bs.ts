@@ -1254,4 +1254,8 @@ export const dict = {
   "error.childStore.persistedProjectIconCreateFailed": "Nije uspjelo kreiranje trajne ikone projekta",
   "error.childStore.storeCreateFailed": "Nije uspjelo kreiranje skladišta",
   "terminal.connectionLost.abnormalClose": "WebSocket zatvoren nenormalno: {{code}}",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Prikaži radni prostor u karticama sesije",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Dodaj naziv radnog prostora ispred naslova kartica sesija",
+  "settings.general.row.sessionBreadcrumbs.title": "Prikaži putanju sesije",
+  "settings.general.row.sessionBreadcrumbs.description": "Prikaži naziv radnog prostora i nadređene sesije iznad vremenske linije",
 }

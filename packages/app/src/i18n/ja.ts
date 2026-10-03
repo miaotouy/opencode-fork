@@ -1166,4 +1166,8 @@ export const dict = {
 
   "titlebar.update": "アップデート",
   "titlebar.updateVersion": "アップデート {{version}}",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "セッションタブにワークスペースを表示",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "セッションタブのタイトルの前にワークスペース名を表示",
+  "settings.general.row.sessionBreadcrumbs.title": "セッションのパンくずリストを表示",
+  "settings.general.row.sessionBreadcrumbs.description": "タイムラインの上にワークスペース名と親セッションを表示",
 }

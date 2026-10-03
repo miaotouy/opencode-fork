@@ -1153,4 +1153,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} სესია დაარქივდება.",
   "workspace.reset.note": "ეს აღადგენს სამუშაო სივრცეს ნაგულისხმევი ფილიალის შესატყვისად.",
   "dialog.usageExceeded.dontShowAgain": "აღარ მაჩვენო",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "სამუშაო სივრცის ჩვენება სესიების ჩანართებში",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "სესიების ჩანართების სათაურების წინ სამუშაო სივრცის სახელის ჩვენება",
+  "settings.general.row.sessionBreadcrumbs.title": "სესიის ნავიგაციის ჩვენება",
+  "settings.general.row.sessionBreadcrumbs.description": "დროის ხაზის ზემოთ სამუშაო სივრცის სახელის და მშობელი სესიების ჩვენება",
 }

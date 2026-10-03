@@ -1163,4 +1163,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} сесиите ќе бидат архивирани.",
   "workspace.reset.note": "Ова ќе го ресетира работниот простор за да одговара на стандардната гранка.",
   "dialog.usageExceeded.dontShowAgain": "Не прикажувај повторно",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Прикажи работен простор во јазичињата на сесијата",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Стави го името на работниот простор пред насловите на јазичињата",
+  "settings.general.row.sessionBreadcrumbs.title": "Прикажи навигациска патека на сесијата",
+  "settings.general.row.sessionBreadcrumbs.description": "Прикажи го името на работниот простор и родителските сесии над хронологијата",
 }

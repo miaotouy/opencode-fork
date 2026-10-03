@@ -67,6 +67,10 @@ import { useSessionArchive } from "@/pages/session/session-archive"
 import { useServerSDK } from "@/context/server-sdk"
 import { usePlatform } from "@/context/platform"
 import { useSettings } from "@/context/settings"
+import { useLayout } from "@/context/layout"
+import { useServer } from "@/context/server"
+import { useTabs } from "@/context/tabs"
+import { displayName, projectForSession } from "@/pages/layout/helpers"
 import { legacySessionHref, requireServerKey, sessionHref } from "@/utils/session-route"
 import { useSDK } from "@/context/sdk"
 import { useSync } from "@/context/sync"
@@ -263,6 +267,9 @@ export function MessageTimeline(props: {
   const sdk = useSDK()
   const sync = useSync()
   const settings = useSettings()
+  const layout = useLayout()
+  const tabs = useTabs()
+  const server = useServer()
   const dialog = useDialog()
   const sessionArchive = useSessionArchive()
   const language = useLanguage()
@@ -312,6 +319,16 @@ export function MessageTimeline(props: {
     return sync().data.message[id] ?? emptyMessages
   })
   const parentTitle = createMemo(() => sessionTitle(parent()?.title) ?? language.t("command.session.new"))
+  const workspaceProject = createMemo(() => {
+    const session = info()
+    if (!session) return
+    return projectForSession(session, layout.projects.list())
+  })
+  const workspaceName = createMemo(() => {
+    const session = info()
+    if (!session) return
+    return displayName(workspaceProject() ?? { worktree: session.directory })
+  })
   const getMsgParts = (msgId: string) => sync().data.part[msgId] ?? emptyParts
   const getMsgPart = (messageID: string, partID: string) => getMsgParts(messageID).find((part) => part.id === partID)
   const childTaskDescription = createMemo(() => {
@@ -900,6 +917,12 @@ export function MessageTimeline(props: {
     )
   }
 
+  const openWorkspaceSession = () => {
+    const session = info()
+    if (!session) return
+    tabs.newDraft({ server: server.key, directory: session.directory }, "")
+  }
+
   function DialogDeleteSession(props: { sessionID: string }) {
     const name = createMemo(
       () => sessionTitle(sync().session.get(props.sessionID)?.title) ?? language.t("command.session.new"),
@@ -1406,6 +1429,30 @@ export function MessageTimeline(props: {
                 }}
               >
                 <div class="flex items-center min-w-0 flex-1 w-full">
+                  <Show when={settings.general.sessionBreadcrumbs() && workspaceName()}>
+                    <span
+                      data-slot="session-title-workspace"
+                      class="min-w-0 max-w-[160px] shrink truncate text-[13px] font-[530] leading-4 tracking-[-0.04px] text-v2-text-text-faint"
+                      title={info()?.directory}
+                    >
+                      {workspaceName()}
+                    </span>
+                    <IconButtonV2
+                      size="small"
+                      variant="ghost-muted"
+                      class="ml-0.5 shrink-0 text-v2-text-text-faint"
+                      icon="plus"
+                      onClick={openWorkspaceSession}
+                      aria-label={language.t("command.session.new")}
+                    />
+                    <span
+                      data-slot="session-title-workspace-separator"
+                      class="-translate-y-[0.5px] pl-2 pr-1 text-[11px] font-medium text-v2-text-text-faint"
+                      aria-hidden="true"
+                    >
+                      /
+                    </span>
+                  </Show>
                   <Show when={parentID()}>
                     <button
                       type="button"

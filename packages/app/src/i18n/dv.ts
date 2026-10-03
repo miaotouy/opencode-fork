@@ -1174,4 +1174,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} ސެޝަންތައް އަރުޝީފް ކުރެވޭނެއެވެ.",
   "workspace.reset.note": "މިއީ ޑިފޯލްޓް ބްރާންޗާ އެއްގޮތްވާ ގޮތަށް ވޯކްސްޕޭސް ރީސެޓް ކުރާނެ ކަމެކެވެ.",
   "dialog.usageExceeded.dontShowAgain": "އަލުން ނުދައްކާ",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "ސެޝަން ޓެބްތަކުގައި ވޯކްސްޕޭސް ދައްކާ",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "ސެޝަން ޓެބް ސުރުޚީތަކުގެ ކުރިޔަށް ވޯކްސްޕޭސްގެ ނަން ދައްކާ",
+  "settings.general.row.sessionBreadcrumbs.title": "ސެޝަން ބްރެޑްކްރަމްބް ދައްކާ",
+  "settings.general.row.sessionBreadcrumbs.description": "ޓައިމްލައިންގެ މަތީގައި ވޯކްސްޕޭސްގެ ނަން އަދި މައި ސެޝަންތައް ދައްކާ",
 }

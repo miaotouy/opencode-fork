@@ -1148,4 +1148,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} seanssi arhiivitakse.",
   "workspace.reset.note": "See lähtestab tööruumi, et see vastaks vaikeharule.",
   "dialog.usageExceeded.dontShowAgain": "Ära kuva enam",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Kuva tööruum sessioonikaartidel",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Kuva tööruumi nimi sessioonikaartide pealkirjade ees",
+  "settings.general.row.sessionBreadcrumbs.title": "Kuva sessiooni leivapurud",
+  "settings.general.row.sessionBreadcrumbs.description": "Kuva tööruumi nimi ja ülemised sessioonid ajajoone kohal",
 }

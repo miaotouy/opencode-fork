@@ -1264,4 +1264,8 @@ export const dict = {
   "workspace.reset.archived.one": "1 сесію буде заархівовано.",
   "workspace.reset.archived.many": "{{count}} сесій буде заархівовано.",
   "workspace.reset.note": "Це скине робочу область, щоб вона відповідала гілці за замовчуванням.",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Показувати робочу область у вкладках сесій",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Додавати назву робочої області перед заголовками вкладок сесій",
+  "settings.general.row.sessionBreadcrumbs.title": "Показувати навігаційний ланцюжок сесії",
+  "settings.general.row.sessionBreadcrumbs.description": "Показувати назву робочої області та батьківські сесії над хронологією",
 }

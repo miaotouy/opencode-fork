@@ -1127,4 +1127,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} ክፍለ-ጊዜዎች በማህደር ይቀመጣሉ።",
   "workspace.reset.note": "ይህ workspaceን ከነባሪው ቅርንጫፍ ጋር እንዲመሳሰል ዳግም ያስጀምረዋል።",
   "dialog.usageExceeded.dontShowAgain": "እንደገና አታሳይ",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "የስራ ቦታን በክፍለ ጊዜ ትሮች ላይ አሳይ",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "የክፍለ ጊዜ ትር ርዕሶች ፊት የስራ ቦታውን ስም አሳይ",
+  "settings.general.row.sessionBreadcrumbs.title": "የክፍለ ጊዜ ዳሰሳ መስመር አሳይ",
+  "settings.general.row.sessionBreadcrumbs.description": "የስራ ቦታውን ስምና ወላጅ ክፍለ ጊዜዎችን ከጊዜ መስመሩ ላይ አሳይ",
 }

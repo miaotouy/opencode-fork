@@ -1161,4 +1161,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} сессия архив карда мешаванд.",
   "workspace.reset.note": "Ин фазои кориро барои мувофиқ кардани филиали пешфарз барқарор мекунад.",
   "dialog.usageExceeded.dontShowAgain": "Дигар нишон надиҳед",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Дар варақаҳои сессия фазои кориро нишон диҳед",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Пеш аз унвонҳои варақаҳои сессия номи фазои кориро нишон диҳед",
+  "settings.general.row.sessionBreadcrumbs.title": "Роҳнамои сессияро нишон диҳед",
+  "settings.general.row.sessionBreadcrumbs.description": "Дар болои хронология номи фазои корӣ ва сессияҳои асосиро нишон диҳед",
 }

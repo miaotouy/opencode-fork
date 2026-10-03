@@ -1167,4 +1167,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} сесии ще бъдат архивирани.",
   "workspace.reset.note": "Това ще нулира работното пространство, за да съответства на клона по подразбиране.",
   "dialog.usageExceeded.dontShowAgain": "Не показвай отново",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Показвай работното пространство в раздели на сесиите",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Поставяй името на работното пространство пред заглавията на разделите",
+  "settings.general.row.sessionBreadcrumbs.title": "Показвай навигационната пътека на сесията",
+  "settings.general.row.sessionBreadcrumbs.description": "Показвай името на работното пространство и родителските сесии над хронологията",
 }

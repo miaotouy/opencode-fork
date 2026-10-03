@@ -1160,4 +1160,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} relací bude archivováno.",
   "workspace.reset.note": "Tím se pracovní prostor resetuje tak, aby odpovídal výchozí větvi.",
   "dialog.usageExceeded.dontShowAgain": "Znovu nezobrazovat",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Zobrazit pracovní prostor v kartách relace",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Přidat název pracovního prostoru před názvy karet relací",
+  "settings.general.row.sessionBreadcrumbs.title": "Zobrazit drobkovou navigaci relace",
+  "settings.general.row.sessionBreadcrumbs.description": "Zobrazit název pracovního prostoru a nadřazené relace nad časovou osou",
 }

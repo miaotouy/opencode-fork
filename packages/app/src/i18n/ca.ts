@@ -1170,4 +1170,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} sessions s'arxivaran.",
   "workspace.reset.note": "Això restablirà l'espai de treball perquè coincideixi amb la branca predeterminada.",
   "dialog.usageExceeded.dontShowAgain": "No ho tornis a mostrar",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Mostrar l'espai de treball a les pestanyes de sessió",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Posar el nom de l'espai de treball davant dels títols de les pestanyes de sessió",
+  "settings.general.row.sessionBreadcrumbs.title": "Mostrar les molles de pa de la sessió",
+  "settings.general.row.sessionBreadcrumbs.description": "Mostrar el nom de l'espai de treball i les sessions pare sobre la línia de temps",
 }

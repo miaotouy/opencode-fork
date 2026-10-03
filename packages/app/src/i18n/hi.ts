@@ -1160,4 +1160,8 @@ export const dict = {
   "workspace.reset.archived.one": "1 सेशन संग्रहित किया जाएगा।",
   "workspace.reset.archived.many": "{{count}} सेशन संग्रहित किए जाएँगे।",
   "workspace.reset.note": "यह डिफ़ॉल्ट शाखा से मिलान करने के लिए वर्कस्पेस को रीसेट कर देगा।",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "सेशन टैब में वर्कस्पेस दिखाएँ",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "सेशन टैब शीर्षकों के आगे वर्कस्पेस नाम दिखाएँ",
+  "settings.general.row.sessionBreadcrumbs.title": "सेशन ब्रेडक्रंब दिखाएँ",
+  "settings.general.row.sessionBreadcrumbs.description": "टाइमलाइन के ऊपर वर्कस्पेस नाम और पैरेंट सेशन दिखाएँ",
 }

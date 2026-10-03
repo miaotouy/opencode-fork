@@ -1167,4 +1167,8 @@ export const dict = {
   "workspace.reset.archived.many": "A {{count}} munkamenetek archiválva lesznek.",
   "workspace.reset.note": "Ezzel visszaállítja a munkaterületet, hogy megfeleljen az alapértelmezett ágnak.",
   "dialog.usageExceeded.dontShowAgain": "Ne jelenjen meg újra",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Munkaterület megjelenítése a munkamenetlapokon",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "A munkaterület nevének megjelenítése a munkamenetlapok címei előtt",
+  "settings.general.row.sessionBreadcrumbs.title": "Munkamenet morzsamenü megjelenítése",
+  "settings.general.row.sessionBreadcrumbs.description": "A munkaterület nevének és a szülő munkameneteknek a megjelenítése az idővonal felett",
 }

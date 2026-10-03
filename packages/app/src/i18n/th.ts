@@ -1235,4 +1235,8 @@ export const dict = {
   "error.childStore.persistedProjectIconCreateFailed": "ไม่สามารถสร้างไอคอนโปรเจกต์ถาวร",
   "error.childStore.storeCreateFailed": "ไม่สามารถสร้างที่เก็บ",
   "terminal.connectionLost.abnormalClose": "WebSocket ปิดอย่างผิดปกติ: {{code}}",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "แสดงพื้นที่ทำงานในแท็บเซสชัน",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "นำหน้าชื่อแท็บเซสชันด้วยชื่อพื้นที่ทำงาน",
+  "settings.general.row.sessionBreadcrumbs.title": "แสดงเบรดครัมบ์ของเซสชัน",
+  "settings.general.row.sessionBreadcrumbs.description": "แสดงชื่อพื้นที่ทำงานและเซสชันหลักเหนือไทม์ไลน์",
 }

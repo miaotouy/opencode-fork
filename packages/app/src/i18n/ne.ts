@@ -1154,4 +1154,8 @@ export const dict: Record<string, string> = {
   "workspace.reset.archived.many": "{{count}} सत्रहरू अभिलेख गरिनेछ।",
   "workspace.reset.note": "यसले पूर्वनिर्धारित शाखासँग मिलाउन कार्यस्थान रिसेट गर्नेछ।",
   "dialog.usageExceeded.dontShowAgain": "फेरि नदेखाउनुहोस्",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "सेसन ट्याबमा कार्यस्थान देखाउनुहोस्",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "सेसन ट्याब शीर्षकअघि कार्यस्थानको नाम देखाउनुहोस्",
+  "settings.general.row.sessionBreadcrumbs.title": "सेसन ब्रेडक्रम्ब देखाउनुहोस्",
+  "settings.general.row.sessionBreadcrumbs.description": "टाइमलाइनमाथि कार्यस्थानको नाम र प्यारेन्ट सेसन देखाउनुहोस्",
 }

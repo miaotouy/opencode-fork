@@ -1151,4 +1151,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} setur verða arkiveraðar.",
   "workspace.reset.note": "Hetta nullstillar workspace til at passa til forsettu greinina.",
   "dialog.usageExceeded.dontShowAgain": "Vís ikki aftur",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Vís workspace á setuflikkum",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Vís workspace navnið framman fyri setuflikkatitlar",
+  "settings.general.row.sessionBreadcrumbs.title": "Vís setuleiðina",
+  "settings.general.row.sessionBreadcrumbs.description": "Vís workspace navnið og yvirsetur yvir tíðarlinjuna",
 }

@@ -1165,4 +1165,8 @@ export const dict = {
   "workspace.reset.archived.one": "1 sessiya arxivlənəcək.",
   "workspace.reset.archived.many": "{{count}} sessiya arxivlənəcək.",
   "workspace.reset.note": "Bu iş sahəsini standart branch ilə uyğunlaşdırmaq üçün sıfırlayacaq.",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Sessiya vərəqlərində iş sahəsini göstər",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Sessiya vərəqi başlıqlarının qabağına iş sahəsi adını əlavə et",
+  "settings.general.row.sessionBreadcrumbs.title": "Sessiya naviqasiya yolunu göstər",
+  "settings.general.row.sessionBreadcrumbs.description": "Zaman xəttinin üstündə iş sahəsi adını və əsas sessiyanı göstər",
 }

@@ -1160,4 +1160,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} seje bodo arhivirane.",
   "workspace.reset.note": "To bo ponastavilo delovni prostor, da bo ustrezal privzeti veji.",
   "dialog.usageExceeded.dontShowAgain": "Ne prikaži več",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Prikaži delovni prostor na zavihkih seje",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Pred naslove zavihkov seje dodaj ime delovnega prostora",
+  "settings.general.row.sessionBreadcrumbs.title": "Prikaži drobtinice seje",
+  "settings.general.row.sessionBreadcrumbs.description": "Prikaži ime delovnega prostora in nadrejene seje nad časovnico",
 }

@@ -1181,4 +1181,8 @@ export const dict = {
   "error.childStore.persistedProjectIconCreateFailed": "Nie udało się utworzyć trwałej ikony projektu",
   "error.childStore.storeCreateFailed": "Nie udało się utworzyć magazynu",
   "terminal.connectionLost.abnormalClose": "WebSocket zamknięty nieprawidłowo: {{code}}",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Pokazuj przestrzeń roboczą w kartach sesji",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Poprzedzaj tytuły kart sesji nazwą przestrzeni roboczej",
+  "settings.general.row.sessionBreadcrumbs.title": "Pokazuj nawigację okruszkową sesji",
+  "settings.general.row.sessionBreadcrumbs.description": "Pokazuj nazwę przestrzeni roboczej i sesje nadrzędne nad osią czasu",
 }

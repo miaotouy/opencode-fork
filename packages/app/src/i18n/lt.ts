@@ -1170,4 +1170,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} sesijos bus archyvuojamos.",
   "workspace.reset.note": "Tai iš naujo nustatys darbo sritį, kad ji atitiktų numatytąją šaką.",
   "dialog.usageExceeded.dontShowAgain": "Daugiau nerodyti",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Rodyti darbo sritį seanso kortelėse",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Rodyti darbo srities pavadinimą prieš seanso kortelių pavadinimus",
+  "settings.general.row.sessionBreadcrumbs.title": "Rodyti seanso naršymo kelią",
+  "settings.general.row.sessionBreadcrumbs.description": "Rodyti darbo srities pavadinimą ir pirminius seansus virš laiko juostos",
 }

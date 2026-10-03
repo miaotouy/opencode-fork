@@ -1161,4 +1161,8 @@ export const dict = {
   "workspace.reset.archived.one": "1 سیشن آرکائیو کیا جائے گا۔",
   "workspace.reset.archived.many": "{{count}} سیشنز آرکائیو کیے جائیں گے۔",
   "workspace.reset.note": "یہ ڈیفالٹ برانچ سے ملنے کے لیے ورک اسپیس کو دوبارہ ترتیب دے گا۔",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "سیشن ٹیبز میں ورک اسپیس دکھائیں",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "سیشن ٹیب کے عنوان سے پہلے ورک اسپیس کا نام دکھائیں",
+  "settings.general.row.sessionBreadcrumbs.title": "سیشن بریڈکرمب دکھائیں",
+  "settings.general.row.sessionBreadcrumbs.description": "ٹائم لائن کے اوپر ورک اسپیس کا نام اور والد سیشن دکھائیں",
 }

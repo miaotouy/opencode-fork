@@ -1156,4 +1156,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} sessiýalary arhiwlener.",
   "workspace.reset.note": "Bu workspace-i adaty şaha gabat getirmek üçin täzeden düzer.",
   "dialog.usageExceeded.dontShowAgain": "Gaýtadan görkezme",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Seans tablarda iş giňişligini görkez",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Seans tab at başlyklarynyň öňünde iş giňişliginiň adyny görkez",
+  "settings.general.row.sessionBreadcrumbs.title": "Seans ýoluny görkez",
+  "settings.general.row.sessionBreadcrumbs.description": "Zamanagatynyň üstünde iş giňişliginiň adyny we esasy seanslary görkez",
 }

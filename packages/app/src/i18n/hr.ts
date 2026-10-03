@@ -1165,4 +1165,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} sesije će biti arhivirane.",
   "workspace.reset.note": "Ovo će resetirati radni prostor kako bi odgovarao zadanoj grani.",
   "dialog.usageExceeded.dontShowAgain": "Ne prikazuj ponovno",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Prikaži radni prostor u karticama sesije",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Dodaj naziv radnog prostora ispred naslova kartica sesija",
+  "settings.general.row.sessionBreadcrumbs.title": "Prikaži navigacijsku stazu sesije",
+  "settings.general.row.sessionBreadcrumbs.description": "Prikaži naziv radnog prostora i nadređene sesije iznad vremenske crte",
 }

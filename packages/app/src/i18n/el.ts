@@ -1170,4 +1170,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} θα αρχειοθετηθούν οι περίοδοι σύνδεσης.",
   "workspace.reset.note": "Αυτό θα επαναφέρει τον χώρο εργασίας ώστε να ταιριάζει με τον προεπιλεγμένο κλάδο.",
   "dialog.usageExceeded.dontShowAgain": "Να μην εμφανιστεί ξανά",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Εμφάνιση χώρου εργασίας στις καρτέλες συνεδρίας",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Εμφάνιση του ονόματος του χώρου εργασίας πριν από τον τίτλο των καρτελών συνεδρίας",
+  "settings.general.row.sessionBreadcrumbs.title": "Εμφάνιση πλοήγησης συνεδρίας",
+  "settings.general.row.sessionBreadcrumbs.description": "Εμφάνιση του ονόματος του χώρου εργασίας και των γονικών συνεδριών πάνω από τη γραμμή χρόνου",
 }

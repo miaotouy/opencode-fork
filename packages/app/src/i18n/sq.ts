@@ -1160,4 +1160,8 @@ export const dict = {
   "workspace.reset.archived.many": "Seancat {{count}} do të arkivohen.",
   "workspace.reset.note": "Kjo do të rivendosë hapësirën e punës që të përputhet me degën e paracaktuar.",
   "dialog.usageExceeded.dontShowAgain": "Mos e shfaq përsëri",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Shfaq hapësirën e punës në skedat e sesionit",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Vendos emrin e hapësirës së punës përpara titujve të skedave të sesionit",
+  "settings.general.row.sessionBreadcrumbs.title": "Shfaq rrugën e sesionit",
+  "settings.general.row.sessionBreadcrumbs.description": "Shfaq emrin e hapësirës së punës dhe sesionet kryesore mbi kronologjinë",
 }

@@ -1157,4 +1157,8 @@ export const dict = {
   "workspace.reset.archived.one": "1 session kommer att arkiveras.",
   "workspace.reset.archived.many": "{{count}} sessioner kommer att arkiveras.",
   "workspace.reset.note": "Detta kommer att återställa arbetsytan så att den matchar standardgrenen.",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Visa arbetsyta i sessionsflikar",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Visa arbetsytans namn före titeln på sessionsflikar",
+  "settings.general.row.sessionBreadcrumbs.title": "Visa sessionsbrödsmulor",
+  "settings.general.row.sessionBreadcrumbs.description": "Visa arbetsytans namn och överordnade sessioner ovanför tidslinjen",
 }

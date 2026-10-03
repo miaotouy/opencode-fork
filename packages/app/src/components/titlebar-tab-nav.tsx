@@ -8,6 +8,7 @@ import { Icon as IconV2 } from "@opencode-ai/ui/v2/icon"
 import { MenuV2 } from "@opencode-ai/ui/v2/menu-v2"
 import { useGlobal } from "@/context/global"
 import { useLanguage } from "@/context/language"
+import { useSettings } from "@/context/settings"
 import { ServerConnection, serverName } from "@/context/server"
 import { displayName, projectForSession } from "@/pages/layout/helpers"
 import { SessionTabAvatar } from "@/pages/layout/session-tab-avatar"
@@ -34,8 +35,9 @@ export function TabNavItem(props: {
   dragging?: boolean
   pressed?: boolean
   hidden?: boolean
-}) {
+ }) {
   const language = useLanguage()
+  const settings = useSettings()
   const [menu, setMenu] = createStore({ open: false, rename: false })
   const [editing, setEditing] = createSignal(false)
   const [titleOverflowing, setTitleOverflowing] = createSignal(false)
@@ -248,6 +250,17 @@ export function TabNavItem(props: {
             )}
           </Show>
         </span>
+        <Show when={settings.general.sessionTabWorkspacePrefix() && !!props.session() && projectName()}>
+          <span
+            data-slot="tab-workspace"
+            class="max-w-[72px] shrink-0 truncate text-[11px] font-normal leading-4 text-v2-text-text-faint"
+          >
+            {projectName()}
+          </span>
+          <span class="shrink-0 text-[11px] font-normal leading-4 text-v2-text-text-faint" aria-hidden="true">
+            /
+          </span>
+        </Show>
         <span
           ref={(el) => {
             titleEl = el

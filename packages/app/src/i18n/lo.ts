@@ -1145,4 +1145,8 @@ export const dict = {
   "workspace.reset.archived.many": "ເຊດຊັນ {{count}} ຈະຖືກເກັບໄວ້.",
   "workspace.reset.note": "ນີ້ຈະຣີເຊັດພື້ນທີ່ເຮັດວຽກໃຫ້ກົງກັບສາຂາເລີ່ມຕົ້ນ.",
   "dialog.usageExceeded.dontShowAgain": "ຢ່າສະແດງອີກ",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "ສະແດງພື້ນທີ່ເຮັດວຽກໃນແຖບເຊດຊັນ",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "ນຳຊື່ພື້ນທີ່ເຮັດວຽກຂຶ້ນໜ້າຫົວຂໍ້ແຖບເຊດຊັນ",
+  "settings.general.row.sessionBreadcrumbs.title": "ສະແດງເສັ້ນທາງຂອງເຊດຊັນ",
+  "settings.general.row.sessionBreadcrumbs.description": "ສະແດງຊື່ພື້ນທີ່ເຮັດວຽກ ແລະເຊດຊັນແມ່ຢູ່ເໜືອເສັ້ນເວລາ",
 }

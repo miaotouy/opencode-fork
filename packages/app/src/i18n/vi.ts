@@ -1166,4 +1166,8 @@ export const dict = {
   "workspace.reset.archived.one": "1 phiên sẽ được lưu trữ.",
   "workspace.reset.archived.many": "{{count}} phiên sẽ được lưu trữ.",
   "workspace.reset.note": "Điều này sẽ thiết lập lại không gian làm việc để phù hợp với nhánh mặc định.",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Hiện không gian làm việc trong tab phiên",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Đặt tên không gian làm việc trước tiêu đề tab phiên",
+  "settings.general.row.sessionBreadcrumbs.title": "Hiện cây phân cấp của phiên",
+  "settings.general.row.sessionBreadcrumbs.description": "Hiện tên không gian làm việc và các phiên cha phía trên dòng thời gian",
 }

@@ -1178,4 +1178,8 @@ export const dict: Record<string, string> = {
   "workspace.reset.archived.many": "{{count}} ལཱ་ཡུན་ཚུ་ཡིག་མཛོད་ནང་བཞག་འོང་།",
   "workspace.reset.note": "འདི་གིས་ སྔོན་སྒྲིག་ཡན་ལག་མཐུན་སྒྲིག་འབད་ནི་ལུ་ ལཱ་གི་ས་སྒོ་འདི་སླར་སྒྲིག་འབད་འོང་།",
   "dialog.usageExceeded.dontShowAgain": "ལོག་སྟེ་མ་སྟོན།",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "ལཱ་ཡུན་ཊེབ་ཚུ་ནང་ ལཱ་གི་ས་སྒོ་སྟོན།",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "ལཱ་ཡུན་ཊེབ་མགོ་མིང་ཚུ་གི་ཧེ་མ་ ལཱ་གི་ས་སྒོའི་མིང་སྟོན།",
+  "settings.general.row.sessionBreadcrumbs.title": "ལཱ་ཡུན་གྱི་ལམ་སྟོན་ཐིག་སྟོན།",
+  "settings.general.row.sessionBreadcrumbs.description": "དུས་མཚམས་ཀྱི་གོང་ལུ་ ལཱ་གི་ས་སྒོའི་མིང་དང་ མ་ལཱ་ཡུན་ཚུ་སྟོན།",
 }

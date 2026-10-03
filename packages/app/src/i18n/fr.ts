@@ -1196,4 +1196,8 @@ export const dict = {
 
   "titlebar.update": "Mettre à jour",
   "titlebar.updateVersion": "Mettre à jour {{version}}",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Afficher l'espace de travail dans les onglets de session",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Préfixer les titres des onglets de session avec le nom de l'espace de travail",
+  "settings.general.row.sessionBreadcrumbs.title": "Afficher le fil d'Ariane de la session",
+  "settings.general.row.sessionBreadcrumbs.description": "Afficher le nom de l'espace de travail et les sessions parentes au-dessus de la chronologie",
 }

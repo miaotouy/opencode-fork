@@ -1148,4 +1148,8 @@ export const dict = {
   "workspace.reset.archived.many": "សម័យ {{count}} នឹងត្រូវបានទុកក្នុងប័ណ្ណសារ។",
   "workspace.reset.note": "វានឹងកំណត់កន្លែងធ្វើការឡើងវិញដើម្បីផ្គូផ្គងសាខាលំនាំដើម។",
   "dialog.usageExceeded.dontShowAgain": "កុំបង្ហាញម្តងទៀត",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "បង្ហាញកន្លែងធ្វើការនៅក្នុងផ្ទាំងសម័យ",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "ដាក់ឈ្មោះកន្លែងធ្វើការនៅមុខចំណងជើងផ្ទាំងសម័យ",
+  "settings.general.row.sessionBreadcrumbs.title": "បង្ហាញផ្លូវនាំផ្លូវរបស់សម័យ",
+  "settings.general.row.sessionBreadcrumbs.description": "បង្ហាញឈ្មោះកន្លែងធ្វើការ និងសម័យមេនៅលើបន្ទាត់ពេលវេលា",
 }

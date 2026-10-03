@@ -1152,4 +1152,8 @@ export const dict = {
   "workspace.reset.archived.many": "جلسات {{count}} بایگانی خواهد شد.",
   "workspace.reset.note": "این کار فضای کاری را برای مطابقت با شاخه پیش فرض بازنشانی می کند.",
   "dialog.usageExceeded.dontShowAgain": "دیگر نشان نده",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "نمایش فضای کاری در زبانه‌های نشست",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "افزودن نام فضای کاری به ابتدای عنوان زبانه‌های نشست",
+  "settings.general.row.sessionBreadcrumbs.title": "نمایش مسیر راهنمای نشست",
+  "settings.general.row.sessionBreadcrumbs.description": "نمایش نام فضای کاری و نشست‌های والد بالای خط زمانی",
 }

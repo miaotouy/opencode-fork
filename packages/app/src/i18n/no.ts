@@ -798,6 +798,10 @@ export const dict = {
   "settings.general.row.editToolPartsExpanded.title": "Utvid edit-verktøydeler",
   "settings.general.row.editToolPartsExpanded.description":
     "Vis edit-, write- og patch-verktøydeler utvidet som standard i tidslinjen",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Vis arbeidsområde i sesjonsfaner",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Sett arbeidsområdenavnet foran tittelen på sesjonsfaner",
+  "settings.general.row.sessionBreadcrumbs.title": "Vis sesjonsbrødkrummer",
+  "settings.general.row.sessionBreadcrumbs.description": "Vis arbeidsområdenavn og overordnede økter over tidslinjen",
   "settings.general.row.wayland.title": "Bruk Wayland direkte",
   "settings.general.row.wayland.description": "Deaktiver X11-reserveløsningen på Wayland. Krever omstart.",
   "settings.general.row.wayland.tooltip":

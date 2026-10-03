@@ -1150,4 +1150,8 @@ export const dict: Record<string, string> = {
   "workspace.reset.archived.many": "සැසි {{count}} සංරක්ෂිත වනු ඇත.",
   "workspace.reset.note": "මෙය පෙරනිමි ශාඛාවට ගැලපෙන පරිදි වැඩබිම නැවත සකසනු ඇත.",
   "dialog.usageExceeded.dontShowAgain": "නැවත නොපෙන්වන්න",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "සැසි ටැබ් වල වැඩබිම පෙන්වන්න",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "සැසි ටැබ් ශීර්ෂ ඉදිරිපිට වැඩබිමේ නම පෙන්වන්න",
+  "settings.general.row.sessionBreadcrumbs.title": "සැසි පියසටහන පෙන්වන්න",
+  "settings.general.row.sessionBreadcrumbs.description": "කාලරේඛාවට ඉහළින් වැඩබිමේ නම සහ මූල සැසි පෙන්වන්න",
 }

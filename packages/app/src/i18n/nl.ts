@@ -1168,4 +1168,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} sessies worden gearchiveerd.",
   "workspace.reset.note":
     "Hierdoor wordt de werkruimte opnieuw ingesteld zodat deze overeenkomt met de standaardbranch.",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Werkruimte in sessietabbladen tonen",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "De werkruimtenaam vóór de titel van sessietabbladen zetten",
+  "settings.general.row.sessionBreadcrumbs.title": "Sessiekruimelpad tonen",
+  "settings.general.row.sessionBreadcrumbs.description": "De werkruimtenaam en bovenliggende sessies boven de tijdlijn tonen",
 }

@@ -369,6 +369,30 @@ export const SettingsGeneralV2: Component<{
           </div>
         </SettingsRowV2>
 
+        <SettingsRowV2
+          title={language.t("settings.general.row.sessionTabWorkspacePrefix.title")}
+          description={language.t("settings.general.row.sessionTabWorkspacePrefix.description")}
+        >
+          <div data-action="settings-session-tab-workspace-prefix">
+            <Switch
+              checked={settings.general.sessionTabWorkspacePrefix()}
+              onChange={(checked) => settings.general.setSessionTabWorkspacePrefix(checked)}
+            />
+          </div>
+        </SettingsRowV2>
+
+        <SettingsRowV2
+          title={language.t("settings.general.row.sessionBreadcrumbs.title")}
+          description={language.t("settings.general.row.sessionBreadcrumbs.description")}
+        >
+          <div data-action="settings-session-breadcrumbs">
+            <Switch
+              checked={settings.general.sessionBreadcrumbs()}
+              onChange={(checked) => settings.general.setSessionBreadcrumbs(checked)}
+            />
+          </div>
+        </SettingsRowV2>
+
         <Show when={mobile() && import.meta.env.VITE_OPENCODE_CHANNEL !== "prod"}>
           <SettingsRowV2
             title={language.t("settings.general.row.mobileTitlebarBottom.title")}

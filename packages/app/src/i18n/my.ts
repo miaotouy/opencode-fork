@@ -1173,4 +1173,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} ဆက်ရှင်များကို သိမ်းဆည်းထားပါမည်။",
   "workspace.reset.note": "၎င်းသည် မူရင်းဌာနခွဲနှင့် ကိုက်ညီစေရန် အလုပ်ခွင်ကို ပြန်လည်သတ်မှတ်ပါမည်။",
   "dialog.usageExceeded.dontShowAgain": "ထပ်မပြပါနှင့်",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "ဆက်ရှင်တဘ်များတွင် အလုပ်နေရာကို ပြပါ",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "ဆက်ရှင်တဘ်ခေါင်းစဉ်များရှေ့တွင် အလုပ်နေရာအမည်ကို ပြပါ",
+  "settings.general.row.sessionBreadcrumbs.title": "ဆက်ရှင်လမ်းကြောင်းပြကို ပြပါ",
+  "settings.general.row.sessionBreadcrumbs.description": "အချိန်မျဉ်းအပေါ်တွင် အလုပ်နေရာအမည်နှင့် မိခုန်ဆက်ရှင်များကို ပြပါ",
 }

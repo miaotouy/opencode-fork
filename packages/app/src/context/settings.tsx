@@ -32,6 +32,8 @@ export interface Settings {
     showReasoningSummaries: boolean
     shellToolPartsExpanded: boolean
     editToolPartsExpanded: boolean
+    sessionTabWorkspacePrefix: boolean
+    sessionBreadcrumbs: boolean
     showCustomAgents: boolean
     mobileTitlebarPosition: "top" | "bottom"
     newLayoutDesigns?: boolean
@@ -193,6 +195,8 @@ const defaultSettings: Settings = {
     showReasoningSummaries: false,
     shellToolPartsExpanded: false,
     editToolPartsExpanded: false,
+    sessionTabWorkspacePrefix: true,
+    sessionBreadcrumbs: true,
     showCustomAgents: false,
     mobileTitlebarPosition: "top",
   },
@@ -416,6 +420,20 @@ export const { use: useSettings, provider: SettingsProvider } = createSimpleCont
         ),
         setEditToolPartsExpanded(value: boolean) {
           setStore("general", "editToolPartsExpanded", value)
+        },
+        sessionTabWorkspacePrefix: withFallback(
+          () => store.general?.sessionTabWorkspacePrefix,
+          defaultSettings.general.sessionTabWorkspacePrefix,
+        ),
+        setSessionTabWorkspacePrefix(value: boolean) {
+          setStore("general", "sessionTabWorkspacePrefix", value)
+        },
+        sessionBreadcrumbs: withFallback(
+          () => store.general?.sessionBreadcrumbs,
+          defaultSettings.general.sessionBreadcrumbs,
+        ),
+        setSessionBreadcrumbs(value: boolean) {
+          setStore("general", "sessionBreadcrumbs", value)
         },
         showCustomAgents,
         setShowCustomAgents(value: boolean) {

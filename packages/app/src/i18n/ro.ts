@@ -1159,4 +1159,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} sesiuni vor fi arhivate.",
   "workspace.reset.note": "Aceasta va reseta spațiul de lucru la ramura implicită.",
   "dialog.usageExceeded.dontShowAgain": "Nu mai afișa",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Afișează spațiul de lucru în taburile sesiunii",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Prefixează titlurile taburilor sesiunii cu numele spațiului de lucru",
+  "settings.general.row.sessionBreadcrumbs.title": "Afișează firimiturile sesiunii",
+  "settings.general.row.sessionBreadcrumbs.description": "Afișează numele spațiului de lucru și sesiunile părinte deasupra cronologiei",
 }

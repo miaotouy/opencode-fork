@@ -1168,4 +1168,8 @@ export const dict = {
   "error.childStore.persistedProjectIconCreateFailed": "فشل إنشاء أيقونة المشروع الدائمة",
   "error.childStore.storeCreateFailed": "فشل إنشاء المخزن",
   "terminal.connectionLost.abnormalClose": "تم إغلاق WebSocket بشكل غير طبيعي: {{code}}",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "إظهار مساحة العمل في تبويبات الجلسات",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "إضافة اسم مساحة العمل قبل عناوين تبويبات الجلسات",
+  "settings.general.row.sessionBreadcrumbs.title": "إظهار مسار التنقل للجلسة",
+  "settings.general.row.sessionBreadcrumbs.description": "إظهار اسم مساحة العمل والجلسات الرئيسية فوق المخطط الزمني",
 }

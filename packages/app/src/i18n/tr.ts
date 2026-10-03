@@ -964,6 +964,10 @@ export const dict = {
   "settings.general.row.editToolPartsExpanded.title": "Düzenleme araç bileşenlerini genişlet",
   "settings.general.row.editToolPartsExpanded.description":
     "Zaman çizelgesinde düzenleme, yazma ve yama araç bileşenlerini varsayılan olarak genişletilmiş göster",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Oturum sekmelerinde çalışma alanını göster",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Oturum sekmesi başlıklarının önüne çalışma alanı adını ekle",
+  "settings.general.row.sessionBreadcrumbs.title": "Oturum gezinme yolunu göster",
+  "settings.general.row.sessionBreadcrumbs.description": "Zaman çizelgesinin üzerinde çalışma alanı adını ve üst oturumları göster",
   "settings.general.row.newInterface.title": "Yeni düzen",
   "settings.general.row.newInterface.badge": "Yeni",
   "settings.general.row.newInterface.description":

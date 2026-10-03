@@ -1156,4 +1156,8 @@ export const dict = {
   "workspace.reset.archived.many": "{{count}} relácií bude archivovaných.",
   "workspace.reset.note": "Týmto sa pracovný priestor obnoví podľa predvolenej vetvy.",
   "dialog.usageExceeded.dontShowAgain": "Znova nezobrazovať",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Zobraziť pracovný priestor na kartách relácie",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Pred názvami kariet relácií zobraziť názov pracovného priestoru",
+  "settings.general.row.sessionBreadcrumbs.title": "Zobraziť drobkovú navigáciu relácie",
+  "settings.general.row.sessionBreadcrumbs.description": "Zobraziť názov pracovného priestoru a nadradené relácie nad časovou osou",
 }

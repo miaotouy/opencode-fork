@@ -1159,4 +1159,8 @@ export const dict = {
   "workspace.reset.archived.many": "Tiks arhivētas {{count}} sesijas.",
   "workspace.reset.note": "Darbvieta tiks atiestatīta uz noklusējuma zara stāvokli.",
   "dialog.usageExceeded.dontShowAgain": "Vairs nerādīt",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Rādīt darba telpu sesiju cilnēs",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Rādīt darba telpas nosaukumu pirms sesiju cilņu virsrakstiem",
+  "settings.general.row.sessionBreadcrumbs.title": "Rādīt sesiju navigācijas ceļu",
+  "settings.general.row.sessionBreadcrumbs.description": "Rādīt darba telpas nosaukumu un pamatsesijas virs laika līnijas",
 }

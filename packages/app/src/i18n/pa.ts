@@ -1158,4 +1158,8 @@ export const dict = {
   "workspace.reset.archived.one": "1 سیشن آرکائیو کیتا جائے گا۔",
   "workspace.reset.archived.many": "{{count}} سیشن آرکائیو کیتے جان گے۔",
   "workspace.reset.note": "ایہ ورک اسپیس نو ڈیفالٹ برانچ نال ملاون لئی ری سیٹ کرے گا۔",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "ਸੈਸ਼ਨ ਟੈਬਾਂ ਵਿੱਚ ਵਰਕਸਪੇਸ ਵੇਖਾਓ",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "ਸੈਸ਼ਨ ਟੈਬ ਸਿਰਲੇਖਾਂ ਤੋਂ ਪਹਿਲਾਂ ਵਰਕਸਪੇਸ ਨਾਂ ਵੇਖਾਓ",
+  "settings.general.row.sessionBreadcrumbs.title": "ਸੈਸ਼ਨ ਬਰੈੱਡਕਰੰਬ ਵੇਖਾਓ",
+  "settings.general.row.sessionBreadcrumbs.description": "ਟਾਈਮਲਾਈਨ ਦੇ ਉੱਪਰ ਵਰਕਸਪੇਸ ਨਾਂ ਅਤੇ ਮੁੱਢਲੇ ਸੈਸ਼ਨ ਵੇਖਾਓ",
 }

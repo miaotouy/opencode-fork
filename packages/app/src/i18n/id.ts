@@ -1247,4 +1247,8 @@ export const dict = {
   "workspace.reset.archived.one": "1 sesi akan diarsipkan.",
   "workspace.reset.archived.many": "{{count}} sesi akan diarsipkan.",
   "workspace.reset.note": "Ini akan mengatur ulang ruang kerja agar cocok dengan cabang bawaan.",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Tampilkan ruang kerja di tab sesi",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Awali judul tab sesi dengan nama ruang kerja",
+  "settings.general.row.sessionBreadcrumbs.title": "Tampilkan breadcrumb sesi",
+  "settings.general.row.sessionBreadcrumbs.description": "Tampilkan nama ruang kerja dan sesi induk di atas lini masa",
 }

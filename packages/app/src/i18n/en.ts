@@ -951,6 +951,12 @@ export const dict = {
   "settings.general.row.editToolPartsExpanded.title": "Expand edit tool parts",
   "settings.general.row.editToolPartsExpanded.description":
     "Show edit, write, and patch tool parts expanded by default in the timeline",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Show workspace in session tabs",
+  "settings.general.row.sessionTabWorkspacePrefix.description":
+    "Prefix session tab titles with the workspace name",
+  "settings.general.row.sessionBreadcrumbs.title": "Show session breadcrumbs",
+  "settings.general.row.sessionBreadcrumbs.description":
+    "Show the workspace name and parent sessions above the timeline",
   "settings.general.row.newInterface.title": "New layout",
   "settings.general.row.newInterface.badge": "New",
   "settings.general.row.newInterface.description":

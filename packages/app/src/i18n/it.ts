@@ -1173,4 +1173,8 @@ export const dict = {
   "desktop.wsl.error.failedPort": "Impossibile ottenere la porta",
   "desktop.picker.error.notSelected": "Il file non è stato selezionato nella finestra di selezione",
   "desktop.picker.error.sizeLimit": "Gli allegati selezionati superano il limite di {{limit}} MB",
+  "settings.general.row.sessionTabWorkspacePrefix.title": "Mostrare l'area di lavoro nelle schede di sessione",
+  "settings.general.row.sessionTabWorkspacePrefix.description": "Anteporre il nome dell'area di lavoro ai titoli delle schede di sessione",
+  "settings.general.row.sessionBreadcrumbs.title": "Mostrare i breadcrumb della sessione",
+  "settings.general.row.sessionBreadcrumbs.description": "Mostrare il nome dell'area di lavoro e le sessioni principali sopra la cronologia",
 }
