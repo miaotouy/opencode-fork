@@ -1182,4 +1182,12 @@ export const dict: Record<string, string> = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "ལཱ་ཡུན་ཊེབ་མགོ་མིང་ཚུ་གི་ཧེ་མ་ ལཱ་གི་ས་སྒོའི་མིང་སྟོན།",
   "settings.general.row.sessionBreadcrumbs.title": "ལཱ་ཡུན་གྱི་ལམ་སྟོན་ཐིག་སྟོན།",
   "settings.general.row.sessionBreadcrumbs.description": "དུས་མཚམས་ཀྱི་གོང་ལུ་ ལཱ་གི་ས་སྒོའི་མིང་དང་ མ་ལཱ་ཡུན་ཚུ་སྟོན།",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

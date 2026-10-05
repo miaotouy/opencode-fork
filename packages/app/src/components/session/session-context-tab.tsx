@@ -13,7 +13,14 @@ import { Markdown } from "@opencode-ai/session-ui/markdown"
 import { ScrollView } from "@opencode-ai/ui/scroll-view"
 import type { Message, Part, UserMessage } from "@opencode-ai/sdk/v2/client"
 import { showToast } from "@/utils/toast"
-import { downloadSessionExport, fetchSessionExport, sessionExportFilename } from "@/utils/session-export"
+import {
+  downloadSessionExport,
+  downloadTextFile,
+  fetchSessionExport,
+  renderSessionMarkdown,
+  sessionExportFilename,
+  sessionMarkdownFilename,
+} from "@/utils/session-export"
 import { useLanguage } from "@/context/language"
 import { useProviders } from "@/hooks/use-providers"
 import { useSDK } from "@/context/sdk"
@@ -249,6 +256,31 @@ export function SessionContextTab() {
     }
   }
 
+  const exportSessionMarkdown = async () => {
+    const sessionID = params.id
+    if (!sessionID) return
+    try {
+      const data = await fetchSessionExport({
+        sessionID,
+        client: sdk().client,
+      })
+      const filename = sessionMarkdownFilename(data.info)
+      downloadTextFile(filename, renderSessionMarkdown(data))
+      showToast({
+        variant: "success",
+        icon: "circle-check",
+        title: language.t("toast.session.exportMarkdown.success.title"),
+        description: language.t("toast.session.exportMarkdown.success.description", { filename }),
+      })
+    } catch (err) {
+      showToast({
+        variant: "error",
+        title: language.t("toast.session.exportMarkdown.failed.title"),
+        description: err instanceof Error ? err.message : language.t("toast.session.exportMarkdown.failed.description"),
+      })
+    }
+  }
+
   let scroll: HTMLDivElement | undefined
   let frame: number | undefined
   let pending: { x: number; y: number } | undefined
@@ -359,15 +391,26 @@ export function SessionContextTab() {
         <div class="flex flex-col gap-2">
           <div class="flex items-center justify-between">
             <div class="text-12-regular text-text-weak">{language.t("context.rawMessages.title")}</div>
-            <Button
-              size="small"
-              variant="ghost"
-              class="gap-1.5 px-2 text-text-weak hover:text-text-base"
-              onClick={exportSession}
-            >
-              <Icon name="download" size="small" />
-              <span>{language.t("context.export.session")}</span>
-            </Button>
+            <div class="flex items-center gap-1">
+              <Button
+                size="small"
+                variant="ghost"
+                class="gap-1.5 px-2 text-text-weak hover:text-text-base"
+                onClick={exportSessionMarkdown}
+              >
+                <Icon name="download" size="small" />
+                <span>{language.t("context.export.markdown")}</span>
+              </Button>
+              <Button
+                size="small"
+                variant="ghost"
+                class="gap-1.5 px-2 text-text-weak hover:text-text-base"
+                onClick={exportSession}
+              >
+                <Icon name="download" size="small" />
+                <span>{language.t("context.export.session")}</span>
+              </Button>
+            </div>
           </div>
           <Accordion multiple>
             <For each={messages()}>

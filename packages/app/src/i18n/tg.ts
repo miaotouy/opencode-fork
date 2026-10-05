@@ -1165,4 +1165,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "Пеш аз унвонҳои варақаҳои сессия номи фазои кориро нишон диҳед",
   "settings.general.row.sessionBreadcrumbs.title": "Роҳнамои сессияро нишон диҳед",
   "settings.general.row.sessionBreadcrumbs.description": "Дар болои хронология номи фазои корӣ ва сессияҳои асосиро нишон диҳед",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

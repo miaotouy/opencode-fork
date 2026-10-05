@@ -1,4 +1,5 @@
 import type { Message, Part, Session } from "@opencode-ai/sdk/v2/client"
+import { sessionToMarkdown } from "./session-markdown"
 
 // Matches the exact `{ info, messages: [{ info, parts }] }` structure produced by `opencode export` CLI
 export type SessionExportData = {
@@ -47,9 +48,19 @@ export function sessionExportFilename(session: { id: string; title?: string; slu
   return `${clean || session.id}.json`
 }
 
-export function downloadSessionExport(filename: string, data: unknown) {
-  const json = JSON.stringify(data, null, 2)
-  const blob = new Blob([json], { type: "application/json" })
+export function sessionMarkdownFilename(session: { id: string; title?: string; slug?: string }) {
+  return sessionExportFilename({ ...session, title: session.title || session.slug || session.id }).replace(
+    /\.json$/,
+    ".md",
+  )
+}
+
+export function renderSessionMarkdown(data: SessionExportData) {
+  return sessionToMarkdown(data)
+}
+
+export function downloadTextFile(filename: string, content: string, mime = "text/markdown") {
+  const blob = new Blob([content], { type: mime })
   const url = URL.createObjectURL(blob)
   const a = document.createElement("a")
   a.href = url
@@ -58,4 +69,9 @@ export function downloadSessionExport(filename: string, data: unknown) {
   a.click()
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
+}
+
+export function downloadSessionExport(filename: string, data: unknown) {
+  const json = JSON.stringify(data, null, 2)
+  downloadTextFile(filename, json, "application/json")
 }

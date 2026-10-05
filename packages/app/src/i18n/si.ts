@@ -1154,4 +1154,12 @@ export const dict: Record<string, string> = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "සැසි ටැබ් ශීර්ෂ ඉදිරිපිට වැඩබිමේ නම පෙන්වන්න",
   "settings.general.row.sessionBreadcrumbs.title": "සැසි පියසටහන පෙන්වන්න",
   "settings.general.row.sessionBreadcrumbs.description": "කාලරේඛාවට ඉහළින් වැඩබිමේ නම සහ මූල සැසි පෙන්වන්න",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

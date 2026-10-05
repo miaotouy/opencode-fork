@@ -1177,4 +1177,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "ဆက်ရှင်တဘ်ခေါင်းစဉ်များရှေ့တွင် အလုပ်နေရာအမည်ကို ပြပါ",
   "settings.general.row.sessionBreadcrumbs.title": "ဆက်ရှင်လမ်းကြောင်းပြကို ပြပါ",
   "settings.general.row.sessionBreadcrumbs.description": "အချိန်မျဉ်းအပေါ်တွင် အလုပ်နေရာအမည်နှင့် မိခုန်ဆက်ရှင်များကို ပြပါ",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

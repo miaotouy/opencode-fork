@@ -1168,4 +1168,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "세션 탭 제목 앞에 작업 공간 이름 표시",
   "settings.general.row.sessionBreadcrumbs.title": "세션 탐색 경로 표시",
   "settings.general.row.sessionBreadcrumbs.description": "타임라인 위에 작업 공간 이름과 상위 세션 표시",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

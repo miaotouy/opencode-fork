@@ -1158,4 +1158,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "Forskeyta titla lotuflipa með nafni vinnusvæðis",
   "settings.general.row.sessionBreadcrumbs.title": "Sýna brauðflögur lotu",
   "settings.general.row.sessionBreadcrumbs.description": "Sýna nafn vinnusvæðis og yfillotur fyrir ofan tímalínuna",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

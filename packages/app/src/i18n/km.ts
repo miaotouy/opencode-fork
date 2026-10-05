@@ -1152,4 +1152,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "ដាក់ឈ្មោះកន្លែងធ្វើការនៅមុខចំណងជើងផ្ទាំងសម័យ",
   "settings.general.row.sessionBreadcrumbs.title": "បង្ហាញផ្លូវនាំផ្លូវរបស់សម័យ",
   "settings.general.row.sessionBreadcrumbs.description": "បង្ហាញឈ្មោះកន្លែងធ្វើការ និងសម័យមេនៅលើបន្ទាត់ពេលវេលា",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

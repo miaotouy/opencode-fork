@@ -53,7 +53,14 @@ import type {
   UserMessage,
 } from "@opencode-ai/sdk/v2"
 import { showToast } from "@/utils/toast"
-import { downloadSessionExport, fetchSessionExport, sessionExportFilename } from "@/utils/session-export"
+import {
+  downloadSessionExport,
+  downloadTextFile,
+  fetchSessionExport,
+  renderSessionMarkdown,
+  sessionExportFilename,
+  sessionMarkdownFilename,
+} from "@/utils/session-export"
 import { getDirectory, getFilename } from "@opencode-ai/core/util/path"
 import { Popover as KobaltePopover } from "@kobalte/core/popover"
 import { normalize } from "@opencode-ai/session-ui/session-diff"
@@ -845,6 +852,29 @@ export function MessageTimeline(props: {
     }
   }
 
+  const exportSessionMarkdown = async (sessionID: string) => {
+    try {
+      const data = await fetchSessionExport({
+        sessionID,
+        client: sdk().client,
+      })
+      const filename = sessionMarkdownFilename(data.info)
+      downloadTextFile(filename, renderSessionMarkdown(data))
+      showToast({
+        variant: "success",
+        icon: "circle-check",
+        title: language.t("toast.session.exportMarkdown.success.title"),
+        description: language.t("toast.session.exportMarkdown.success.description", { filename }),
+      })
+    } catch (err) {
+      showToast({
+        variant: "error",
+        title: language.t("toast.session.exportMarkdown.failed.title"),
+        description: err instanceof Error ? err.message : language.t("toast.session.exportMarkdown.failed.description"),
+      })
+    }
+  }
+
   const deleteSession = async (sessionID: string) => {
     const session = sync().session.get(sessionID)
     if (!session) return false
@@ -1604,6 +1634,11 @@ export function MessageTimeline(props: {
                                     </DropdownMenu.ItemLabel>
                                   </DropdownMenu.Item>
                                 </Show>
+                                <DropdownMenu.Item onSelect={() => exportSessionMarkdown(id)}>
+                                  <DropdownMenu.ItemLabel>
+                                    {language.t("common.exportMarkdown")}
+                                  </DropdownMenu.ItemLabel>
+                                </DropdownMenu.Item>
                                 <DropdownMenu.Item onSelect={() => exportSession(id)}>
                                   <DropdownMenu.ItemLabel>{language.t("common.export")}</DropdownMenu.ItemLabel>
                                 </DropdownMenu.Item>
@@ -1678,6 +1713,9 @@ export function MessageTimeline(props: {
                                   {language.t("session.share.action.share")}...
                                 </MenuV2.Item>
                               </Show>
+                              <MenuV2.Item onSelect={() => exportSessionMarkdown(id)}>
+                                {language.t("common.exportMarkdown")}...
+                              </MenuV2.Item>
                               <MenuV2.Item onSelect={() => exportSession(id)}>
                                 {language.t("common.export")}...
                               </MenuV2.Item>

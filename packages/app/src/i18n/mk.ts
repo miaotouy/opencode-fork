@@ -1167,4 +1167,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "Стави го името на работниот простор пред насловите на јазичињата",
   "settings.general.row.sessionBreadcrumbs.title": "Прикажи навигациска патека на сесијата",
   "settings.general.row.sessionBreadcrumbs.description": "Прикажи го името на работниот простор и родителските сесии над хронологијата",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

@@ -1169,4 +1169,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "Sessiya vərəqi başlıqlarının qabağına iş sahəsi adını əlavə et",
   "settings.general.row.sessionBreadcrumbs.title": "Sessiya naviqasiya yolunu göstər",
   "settings.general.row.sessionBreadcrumbs.description": "Zaman xəttinin üstündə iş sahəsi adını və əsas sessiyanı göstər",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

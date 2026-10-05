@@ -1263,4 +1263,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "Добавлять имя рабочего пространства перед заголовками вкладок сессий",
   "settings.general.row.sessionBreadcrumbs.title": "Показывать навигационную цепочку сессии",
   "settings.general.row.sessionBreadcrumbs.description": "Показывать имя рабочего пространства и родительские сессии над хронологией",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

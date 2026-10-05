@@ -1249,4 +1249,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "Vis workspacenavnet foran titlen på sessionsfaner",
   "settings.general.row.sessionBreadcrumbs.title": "Vis sessionens brødkrumme",
   "settings.general.row.sessionBreadcrumbs.description": "Vis workspacenavnet og overordnede sessioner over tidslinjen",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

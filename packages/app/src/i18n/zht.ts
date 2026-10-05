@@ -1224,4 +1224,12 @@ export const dict = {
   "error.childStore.persistedProjectIconCreateFailed": "建立持續性專案圖示失敗",
   "error.childStore.storeCreateFailed": "建立儲存區失敗",
   "terminal.connectionLost.abnormalClose": "WebSocket 異常關閉：{{code}}",
+  "common.exportMarkdown": "匯出為 Markdown",
+  "command.session.exportMarkdown": "將工作階段匯出為 Markdown",
+  "command.session.exportMarkdown.description": "將工作階段記錄匯出為可分享的 Markdown",
+  "context.export.markdown": "匯出為 Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown 已匯出",
+  "toast.session.exportMarkdown.success.description": "已將 Markdown 工作階段記錄儲存至 {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "匯出 Markdown 失敗",
+  "toast.session.exportMarkdown.failed.description": "匯出 Markdown 工作階段記錄時發生錯誤",
 } satisfies Partial<Record<Keys, string>>

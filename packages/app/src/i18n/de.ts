@@ -1184,6 +1184,14 @@ export const dict = {
   "help.tabs.home":
     "Auf der neuen Startseite finden Sie alle Ihre Sitzungen und Projekte. Wenn Sie eine Sitzung auswählen, wird sie in einem Tab geöffnet.",
   "help.tabs.persistence": "Wenn Sie die App erneut öffnen, sind Ihre Tabs weiterhin geöffnet.",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
   "help.tabs.worktrees":
     "Das neue Design unterstützt Git-Worktrees noch nicht. Diese Funktion folgt in Kürze. Wenn Sie das bisherige Layout vorerst weiterverwenden möchten, können Sie in den Einstellungen zwischen den Layouts wechseln. Beachten Sie jedoch, dass das neue Layout in einigen Wochen dauerhaft verwendet wird.",
 } satisfies Partial<Record<Keys, string>>

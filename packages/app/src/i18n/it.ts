@@ -1177,4 +1177,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "Anteporre il nome dell'area di lavoro ai titoli delle schede di sessione",
   "settings.general.row.sessionBreadcrumbs.title": "Mostrare i breadcrumb della sessione",
   "settings.general.row.sessionBreadcrumbs.description": "Mostrare il nome dell'area di lavoro e le sessioni principali sopra la cronologia",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

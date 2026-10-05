@@ -1174,4 +1174,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "Posar el nom de l'espai de treball davant dels títols de les pestanyes de sessió",
   "settings.general.row.sessionBreadcrumbs.title": "Mostrar les molles de pa de la sessió",
   "settings.general.row.sessionBreadcrumbs.description": "Mostrar el nom de l'espai de treball i les sessions pare sobre la línia de temps",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }

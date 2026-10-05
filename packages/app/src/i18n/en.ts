@@ -97,6 +97,8 @@ export const dict = {
   "command.session.unshare.description": "Stop sharing this session",
   "command.session.export": "Export session",
   "command.session.export.description": "Export the full session transcript as JSON",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
 
   "palette.search.placeholder": "Search files, commands, and sessions",
   "palette.search.placeholder.home": "Search commands and sessions",
@@ -493,6 +495,7 @@ export const dict = {
   "context.systemPrompt.title": "System Prompt",
   "context.rawMessages.title": "Raw messages",
   "context.export.session": "Export session",
+  "context.export.markdown": "Export as Markdown",
 
   "context.stats.session": "Session",
   "context.stats.messages": "Messages",
@@ -576,6 +579,10 @@ export const dict = {
   "toast.session.export.success.description": "Saved session to {{filename}}",
   "toast.session.export.failed.title": "Failed to export session",
   "toast.session.export.failed.description": "An error occurred while exporting the session",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 
   "toast.session.listFailed.title": "Failed to load sessions for {{project}}",
   "toast.project.reloadFailed.title": "Failed to reload {{project}}",
@@ -812,6 +819,7 @@ export const dict = {
   "common.learnMore": "Learn more",
   "common.rename": "Rename",
   "common.export": "Export",
+  "common.exportMarkdown": "Export as Markdown",
   "common.reset": "Reset",
   "common.archive": "Archive",
   "common.delete": "Delete",

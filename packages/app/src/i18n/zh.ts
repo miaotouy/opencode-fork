@@ -1228,4 +1228,12 @@ export const dict = {
   "error.childStore.persistedProjectIconCreateFailed": "创建持久化项目图标失败",
   "error.childStore.storeCreateFailed": "创建存储失败",
   "terminal.connectionLost.abnormalClose": "WebSocket 异常关闭：{{code}}",
+  "common.exportMarkdown": "导出为 Markdown",
+  "command.session.exportMarkdown": "将会话导出为 Markdown",
+  "command.session.exportMarkdown.description": "将会话记录导出为可分享的 Markdown",
+  "context.export.markdown": "导出为 Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown 已导出",
+  "toast.session.exportMarkdown.success.description": "已将 Markdown 会话记录保存到 {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "导出 Markdown 失败",
+  "toast.session.exportMarkdown.failed.description": "导出 Markdown 会话记录时发生错误",
 } satisfies Partial<Record<Keys, string>>

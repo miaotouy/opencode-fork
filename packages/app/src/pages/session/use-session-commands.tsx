@@ -12,7 +12,14 @@ import { useSettings } from "@/context/settings"
 import { useSync } from "@/context/sync"
 import { useTerminal } from "@/context/terminal"
 import { showToast } from "@/utils/toast"
-import { downloadSessionExport, fetchSessionExport, sessionExportFilename } from "@/utils/session-export"
+import {
+  downloadSessionExport,
+  downloadTextFile,
+  fetchSessionExport,
+  renderSessionMarkdown,
+  sessionExportFilename,
+  sessionMarkdownFilename,
+} from "@/utils/session-export"
 import { findLast } from "@opencode-ai/core/util/array"
 import { createSessionTabs } from "@/pages/session/helpers"
 import { extractPromptFromParts } from "@/utils/prompt"
@@ -260,6 +267,31 @@ export const useSessionCommands = (actions: SessionCommandContext) => {
     }
   }
 
+  const exportSessionMarkdown = async () => {
+    const sessionID = params.id
+    if (!sessionID) return
+    try {
+      const data = await fetchSessionExport({
+        sessionID,
+        client: sdk().client,
+      })
+      const filename = sessionMarkdownFilename(data.info)
+      downloadTextFile(filename, renderSessionMarkdown(data))
+      showToast({
+        variant: "success",
+        icon: "circle-check",
+        title: language.t("toast.session.exportMarkdown.success.title"),
+        description: language.t("toast.session.exportMarkdown.success.description", { filename }),
+      })
+    } catch (err) {
+      showToast({
+        variant: "error",
+        title: language.t("toast.session.exportMarkdown.failed.title"),
+        description: err instanceof Error ? err.message : language.t("toast.session.exportMarkdown.failed.description"),
+      })
+    }
+  }
+
   const openFile = () => {
     void openDialog(
       () => import("@/components/dialog-select-file"),
@@ -498,6 +530,14 @@ export const useSessionCommands = (actions: SessionCommandContext) => {
       slash: "export",
       disabled: !params.id,
       onSelect: exportSession,
+    }),
+    sessionCommand({
+      id: "session.export.markdown",
+      title: language.t("command.session.exportMarkdown"),
+      description: language.t("command.session.exportMarkdown.description"),
+      slash: "export-markdown",
+      disabled: !params.id,
+      onSelect: exportSessionMarkdown,
     }),
     sessionCommand({
       id: "session.archive",

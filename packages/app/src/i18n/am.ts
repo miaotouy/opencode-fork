@@ -1131,4 +1131,12 @@ export const dict = {
   "settings.general.row.sessionTabWorkspacePrefix.description": "የክፍለ ጊዜ ትር ርዕሶች ፊት የስራ ቦታውን ስም አሳይ",
   "settings.general.row.sessionBreadcrumbs.title": "የክፍለ ጊዜ ዳሰሳ መስመር አሳይ",
   "settings.general.row.sessionBreadcrumbs.description": "የስራ ቦታውን ስምና ወላጅ ክፍለ ጊዜዎችን ከጊዜ መስመሩ ላይ አሳይ",
+  "common.exportMarkdown": "Export as Markdown",
+  "command.session.exportMarkdown": "Export session as Markdown",
+  "command.session.exportMarkdown.description": "Export a shareable Markdown transcript",
+  "context.export.markdown": "Export as Markdown",
+  "toast.session.exportMarkdown.success.title": "Markdown exported",
+  "toast.session.exportMarkdown.success.description": "Saved Markdown transcript to {{filename}}",
+  "toast.session.exportMarkdown.failed.title": "Failed to export Markdown",
+  "toast.session.exportMarkdown.failed.description": "An error occurred while exporting the Markdown transcript",
 }
