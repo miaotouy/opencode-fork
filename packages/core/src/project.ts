@@ -75,7 +75,7 @@ const layer = Layer.effect(
       if (!origin) return undefined
       const normalized = url(origin)
       if (!normalized) return undefined
-      return ID.make(Hash.fast(`git-remote:${normalized}`))
+      return ID.make(Hash.fast(`git-remote:${normalized}:${repo.worktree}`))
     })
 
     function url(input: string) {
