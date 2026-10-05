@@ -14,8 +14,8 @@
   [data-component="animated-count-list"],
   [data-slot="text-shimmer-char-shimmer"],
   [data-slot="text-shimmer-v2-shimmer"] {
-    -webkit-user-select: none;
-    user-select: none;
+    -webkit-user-select: text;
+    user-select: text;
   }
 }
 [data-component="session-turn"] {

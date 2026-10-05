@@ -139,7 +139,7 @@
     padding: 2px;
     border-radius: 4px;
     color: var(--bt-chevron);
-    user-select: none;
+    user-select: text;
   }
 
   [data-slot="basic-tool-v2-chevron"] {

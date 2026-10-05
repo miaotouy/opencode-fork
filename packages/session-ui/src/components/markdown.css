@@ -319,7 +319,7 @@ body[data-new-layout] [data-component="markdown"] {
     background: var(--v2-background-bg-layer-01);
     box-shadow: var(--v2-elevation-floating);
     color: var(--v2-text-text-base);
-    user-select: none;
+    user-select: text;
     font-size: 11px;
     font-weight: 530;
     line-height: 12px;

@@ -141,7 +141,7 @@
   line-height: 1;
   letter-spacing: -0.04px;
   color: var(--v2-text-text-base);
-  user-select: none;
+  user-select: text;
 }
 
 [data-component="line-comment-v2"][data-variant="editor"] [data-slot="line-comment-v2-textarea"] {
@@ -168,7 +168,7 @@
 
 [data-component="line-comment-v2"][data-variant="editor"] [data-slot="line-comment-v2-textarea"]::placeholder {
   color: var(--v2-text-text-faint);
-  user-select: none;
+  user-select: text;
 }
 
 [data-component="line-comment-v2"][data-variant="editor"] [data-slot="line-comment-v2-textarea"]:focus {

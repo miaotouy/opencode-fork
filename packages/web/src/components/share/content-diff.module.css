@@ -60,7 +60,7 @@
           position: absolute;
           left: 0.6ch;
           top: 1px;
-          user-select: none;
+          user-select: text;
           color: var(--sl-color-red-high);
         }
       }
@@ -76,7 +76,7 @@
         &::before {
           content: "+";
           position: absolute;
-          user-select: none;
+          user-select: text;
           color: var(--sl-color-green-high);
           left: 0.6ch;
           top: 1px;
@@ -115,7 +115,7 @@
           position: absolute;
           left: 0.6ch;
           top: 1px;
-          user-select: none;
+          user-select: text;
           color: var(--sl-color-red-high);
         }
       }
@@ -134,7 +134,7 @@
           position: absolute;
           left: 0.6ch;
           top: 1px;
-          user-select: none;
+          user-select: text;
           color: var(--sl-color-green-high);
         }
       }
