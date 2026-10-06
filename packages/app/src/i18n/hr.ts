@@ -974,6 +974,9 @@ export const dict = {
     "Prebacivanje između agenata u skladatelju. Kada je skriven, zadana je Build agent.",
   "settings.general.row.reasoningSummaries.title": "Prikaži sažetke obrazloženja",
   "settings.general.row.reasoningSummaries.description": "Prikažite sažetke obrazloženja modela na vremenskoj traci",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Proširite dijelove alata školjke",
   "settings.general.row.shellToolPartsExpanded.description":
     "Prikažite dijelove alata ljuske proširene prema zadanim postavkama na vremenskoj traci",

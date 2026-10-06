@@ -889,6 +889,9 @@ export const dict = {
     "Umożliwiaj przełączanie agentów w edytorze wiadomości. Po ukryciu domyślnie używany jest agent Build.",
   "settings.general.row.reasoningSummaries.title": "Pokaż podsumowania wnioskowania",
   "settings.general.row.reasoningSummaries.description": "Wyświetlaj podsumowania wnioskowania modelu na osi czasu",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Rozwijaj elementy narzędzia shell",
   "settings.general.row.shellToolPartsExpanded.description":
     "Domyślnie pokazuj rozwinięte elementy narzędzia shell na osi czasu",

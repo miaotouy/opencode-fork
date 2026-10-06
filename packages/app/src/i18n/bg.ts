@@ -973,6 +973,9 @@ export const dict = {
   "settings.general.row.reasoningSummaries.title": "Показване на обобщения на разсъжденията",
   "settings.general.row.reasoningSummaries.description":
     "Показване на обобщения на разсъжденията на модела във времевата линия",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Разгънете shell части на инструмента",
   "settings.general.row.shellToolPartsExpanded.description":
     "Показване на shell части от инструмента, разширени по подразбиране във времевата линия",

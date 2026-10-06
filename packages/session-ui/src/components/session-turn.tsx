@@ -157,6 +157,7 @@ export function SessionTurn(
     messages?: MessageType[]
     actions?: UserActions
     showReasoningSummaries?: boolean
+    reasoningDefaultExpanded?: boolean
     shellToolDefaultOpen?: boolean
     editToolDefaultOpen?: boolean
     active?: boolean
@@ -414,6 +415,7 @@ export function SessionTurn(
                     turnDurationMs={turnDurationMs()}
                     working={working()}
                     showReasoningSummaries={showReasoningSummaries()}
+                    reasoningDefaultExpanded={props.reasoningDefaultExpanded}
                     shellToolDefaultOpen={props.shellToolDefaultOpen}
                     editToolDefaultOpen={props.editToolDefaultOpen}
                   />

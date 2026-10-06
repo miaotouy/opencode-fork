@@ -959,6 +959,9 @@ export const dict = {
     "Helilooja agentide vahel vahetamine. Kui see on peidetud, on vaikimisi Agent.",
   "settings.general.row.reasoningSummaries.title": "Näita põhjenduste kokkuvõtteid",
   "settings.general.row.reasoningSummaries.description": "Kuva mudeli arutluskäigu kokkuvõtted ajaskaalal",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Laienda shellitööriista osi",
   "settings.general.row.shellToolPartsExpanded.description":
     "Kuva shellitööriista osad ajaskaalal vaikimisi laiendatuna",

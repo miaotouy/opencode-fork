@@ -829,6 +829,9 @@ export const dict = {
   "settings.general.row.reasoningSummaries.title": "Vis ræsonneringsoversigter",
   "settings.general.row.reasoningSummaries.description": "Vis oversigter over modellens ræsonnering på tidslinjen",
 
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Udvid shell-værktøjsdele",
   "settings.general.row.shellToolPartsExpanded.description": "Vis shell-værktøjsdele udvidet som standard i tidslinjen",
   "settings.general.row.editToolPartsExpanded.title": "Udvid edit-værktøjsdele",

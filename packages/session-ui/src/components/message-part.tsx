@@ -169,6 +169,7 @@ export interface MessageProps {
   actions?: UserActions
   showAssistantCopyPartID?: string | null
   showReasoningSummaries?: boolean
+  reasoningDefaultExpanded?: boolean
   useV2Actions?: boolean
   comments?: UserMessageComment[]
 }
@@ -203,6 +204,7 @@ export interface MessagePartProps {
   showAssistantCopyPartID?: string | null
   turnDurationMs?: number
   useV2Actions?: boolean
+  reasoningDefaultExpanded?: boolean
 }
 
 function MessageActionButton(
@@ -728,6 +730,7 @@ export function AssistantParts(props: {
   useV2Actions?: boolean
   working?: boolean
   showReasoningSummaries?: boolean
+  reasoningDefaultExpanded?: boolean
   shellToolDefaultOpen?: boolean
   editToolDefaultOpen?: boolean
 }) {
@@ -811,6 +814,7 @@ export function AssistantParts(props: {
                         showAssistantCopyPartID={props.showAssistantCopyPartID}
                         turnDurationMs={props.turnDurationMs}
                         useV2Actions={props.useV2Actions}
+                        reasoningDefaultExpanded={props.reasoningDefaultExpanded}
                         defaultOpen={partDefaultOpen(item()!, props.shellToolDefaultOpen, props.editToolDefaultOpen)}
                       />
                     </Show>
@@ -954,6 +958,7 @@ export function Message(props: MessageProps) {
             parts={props.parts}
             showAssistantCopyPartID={props.showAssistantCopyPartID}
             showReasoningSummaries={props.showReasoningSummaries}
+            reasoningDefaultExpanded={props.reasoningDefaultExpanded}
             useV2Actions={props.useV2Actions}
           />
         )}
@@ -967,6 +972,7 @@ export function AssistantMessageDisplay(props: {
   parts: PartType[]
   showAssistantCopyPartID?: string | null
   showReasoningSummaries?: boolean
+  reasoningDefaultExpanded?: boolean
   useV2Actions?: boolean
 }) {
   const emptyTools: ToolPart[] = []
@@ -1028,6 +1034,7 @@ export function AssistantMessageDisplay(props: {
                       message={props.message}
                       showAssistantCopyPartID={props.showAssistantCopyPartID}
                       useV2Actions={props.useV2Actions}
+                      reasoningDefaultExpanded={props.reasoningDefaultExpanded}
                     />
                   </Show>
                 )
@@ -1448,6 +1455,7 @@ export function Part(props: MessagePartProps) {
         showAssistantCopyPartID={props.showAssistantCopyPartID}
         turnDurationMs={props.turnDurationMs}
         useV2Actions={props.useV2Actions}
+        reasoningDefaultExpanded={props.reasoningDefaultExpanded}
       />
     </Show>
   )
@@ -1758,16 +1766,38 @@ PART_MAPPING["text"] = function TextPartDisplay(props) {
 
 PART_MAPPING["reasoning"] = function ReasoningPartDisplay(props) {
   const data = useData()
+  const i18n = useI18n()
   const part = () => props.part as ReasoningPart
   const streaming = createMemo(
     () => props.message.role === "assistant" && typeof (props.message as AssistantMessage).time.completed !== "number",
   )
   const text = () => readPartText(data.store.part_text_accum_delta, part())
+  const [override, setOverride] = createSignal<boolean | undefined>(undefined)
+  const open = createMemo(() => override() ?? props.reasoningDefaultExpanded ?? true)
 
   return (
     <Show when={text()}>
       <div data-component="reasoning-part" data-timeline-part-id={part().id}>
-        <PacedMarkdown text={text()} cacheKey={part().id} streaming={streaming()} />
+        <Collapsible
+          variant="ghost"
+          class="reasoning-collapsible"
+          open={open()}
+          onOpenChange={(value) => setOverride(value)}
+        >
+          <Collapsible.Trigger as="div" role="button">
+            <div data-slot="reasoning-trigger">
+              <span data-slot="reasoning-trigger-label">
+                <TextShimmer text={i18n.t("ui.sessionTurn.status.thinking")} active={streaming()} />
+              </span>
+              <Collapsible.Arrow />
+            </div>
+          </Collapsible.Trigger>
+          <Collapsible.Content>
+            <div data-slot="reasoning-body">
+              <PacedMarkdown text={text()} cacheKey={part().id} streaming={streaming()} />
+            </div>
+          </Collapsible.Content>
+        </Collapsible>
       </div>
     </Show>
   )

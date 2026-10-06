@@ -782,6 +782,9 @@ export const dict = {
   "settings.general.row.reasoningSummaries.title": "Reasoning-Zusammenfassungen anzeigen",
   "settings.general.row.reasoningSummaries.description":
     "Zusammenfassungen des Modell-Reasonings in der Timeline anzeigen",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Shell-Tool-Abschnitte ausklappen",
   "settings.general.row.shellToolPartsExpanded.description":
     "Shell-Tool-Abschnitte standardmäßig in der Timeline ausgeklappt anzeigen",

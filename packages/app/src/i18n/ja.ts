@@ -872,6 +872,9 @@ export const dict = {
     "コンポーザーでエージェントを切り替えます。非表示の場合は、デフォルトでBuildエージェントが使用されます。",
   "settings.general.row.reasoningSummaries.title": "推論の要約を表示",
   "settings.general.row.reasoningSummaries.description": "タイムラインにモデルの推論の要約を表示します",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "shell ツールパーツを展開",
   "settings.general.row.shellToolPartsExpanded.description":
     "タイムラインで shell ツールパーツをデフォルトで展開して表示します",

@@ -883,6 +883,9 @@ export const dict = {
     "التبديل بين الوكلاء في محرر الرسائل. عند إخفائه، يُستخدم وكيل Build افتراضيًا.",
   "settings.general.row.reasoningSummaries.title": "إظهار ملخصات الاستدلال",
   "settings.general.row.reasoningSummaries.description": "عرض ملخصات استدلال النموذج في الشريط الزمني",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "توسيع أجزاء أداة shell",
   "settings.general.row.shellToolPartsExpanded.description":
     "إظهار أجزاء أداة shell موسعة بشكل افتراضي في الشريط الزمني",

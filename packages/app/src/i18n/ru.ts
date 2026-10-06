@@ -956,6 +956,9 @@ export const dict = {
   "settings.general.row.reasoningSummaries.title": "Показывать сводки рассуждений",
   "settings.general.row.reasoningSummaries.description": "Отображать сводки рассуждений модели в ленте",
 
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Разворачивать элементы инструмента shell",
   "settings.general.row.shellToolPartsExpanded.description":
     "Показывать элементы инструмента shell в ленте развернутыми по умолчанию",

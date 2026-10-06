@@ -975,6 +975,9 @@ export const dict = {
     "Mesaj sahəsində agentlər arasında keçid edin. Gizlədildikdə Build agenti seçilir.",
   "settings.general.row.reasoningSummaries.title": "Düşünmə xülasələrini göstər",
   "settings.general.row.reasoningSummaries.description": "Zaman xəttində modelin düşünmə xülasələrini göstər",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Shell alət hissələrini genişlət",
   "settings.general.row.shellToolPartsExpanded.description":
     "Zaman xəttində shell alət hissələrini standart olaraq genişlədilmiş göstər",

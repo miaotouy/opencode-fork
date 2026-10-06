@@ -962,6 +962,9 @@ export const dict = {
     "Skift millum agentar í tónaskaldinum. Tá ið tað er fjalt, er tað forsett til Build agent.",
   "settings.general.row.reasoningSummaries.title": "Vís grundgevingarsamantektir",
   "settings.general.row.reasoningSummaries.description": "Vís modellgrundgevingarsamantektir í tíðarlinjuni",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Víðka shell-tólpartar",
   "settings.general.row.shellToolPartsExpanded.description": "Vís shell-tólpartar víðkaðar sum standard í tíðarlinjuni",
   "settings.general.row.editToolPartsExpanded.title": "Víðka rætta tólpartar",

@@ -1060,6 +1060,9 @@ export const dict = {
     "Перемикатися між агентами в редакторі запиту. Якщо приховано, типовим є агент Build.",
   "settings.general.row.reasoningSummaries.title": "Показувати підсумки мислення",
   "settings.general.row.reasoningSummaries.description": "Відображати підсумки мислення моделі на часовій шкалі",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Розгортати частини інструменту оболонки",
   "settings.general.row.shellToolPartsExpanded.description":
     "Показувати частини інструменту оболонки розгорнутими за замовчуванням на часовій шкалі",

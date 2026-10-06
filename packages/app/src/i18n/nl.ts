@@ -976,6 +976,9 @@ export const dict = {
   "settings.general.row.reasoningSummaries.title": "Toon redeneeroverzichten",
   "settings.general.row.reasoningSummaries.description":
     "Geef samenvattingen van modelredeneringen weer in de tijdlijn",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Shelltoolonderdelen uitvouwen",
   "settings.general.row.shellToolPartsExpanded.description":
     "Toon shelltoolonderdelen standaard uitgevouwen in de tijdlijn",

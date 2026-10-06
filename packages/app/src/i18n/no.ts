@@ -793,6 +793,9 @@ export const dict = {
   "settings.general.row.followup.option.steer": "Styr",
   "settings.general.row.reasoningSummaries.title": "Vis resonneringssammendrag",
   "settings.general.row.reasoningSummaries.description": "Vis sammendrag av modellresonnering i tidslinjen",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Utvid shell-verktøydeler",
   "settings.general.row.shellToolPartsExpanded.description": "Vis shell-verktøydeler utvidet som standard i tidslinjen",
   "settings.general.row.editToolPartsExpanded.title": "Utvid edit-verktøydeler",

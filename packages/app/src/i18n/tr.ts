@@ -958,6 +958,9 @@ export const dict = {
     "Düzenleyicide ajanlar arasında geçiş yapın. Gizlendiğinde varsayılan olarak Build ajanı kullanılır.",
   "settings.general.row.reasoningSummaries.title": "Akıl yürütme özetlerini göster",
   "settings.general.row.reasoningSummaries.description": "Zaman çizelgesinde model akıl yürütme özetlerini görüntüle",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Kabuk araç bileşenlerini genişlet",
   "settings.general.row.shellToolPartsExpanded.description":
     "Zaman çizelgesinde kabuk araç bileşenlerini varsayılan olarak genişletilmiş göster",

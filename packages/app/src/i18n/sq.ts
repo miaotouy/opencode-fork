@@ -970,6 +970,9 @@ export const dict = {
     "Kaloni ndërmjet agjentëve në kompozitor. Kur fshihet, si parazgjedhje është Build agent.",
   "settings.general.row.reasoningSummaries.title": "Trego përmbledhjet e arsyetimit",
   "settings.general.row.reasoningSummaries.description": "Shfaqni përmbledhjet e arsyetimit të modelit në afatin kohor",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Zgjeroni pjesët e veglave të guaskës",
   "settings.general.row.shellToolPartsExpanded.description":
     "Shfaq pjesët e veglës së guaskës të zgjeruara si parazgjedhje në afatin kohor",

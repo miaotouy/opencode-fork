@@ -966,6 +966,9 @@ export const dict = {
   "settings.general.row.reasoningSummaries.title": "Pikirleriň gysgaça mazmunyny görkeziň",
   "settings.general.row.reasoningSummaries.description":
     "Wagt görkezijisinde model pikirlenişiň gysgaça mazmunyny görkeziň",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Shell gural böleklerini giňeltmek",
   "settings.general.row.shellToolPartsExpanded.description":
     "Wagt görkezijisinde deslapky görnüşde giňeldilen shell gural böleklerini görkeziň",

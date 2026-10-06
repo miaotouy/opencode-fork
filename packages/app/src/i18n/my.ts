@@ -979,6 +979,9 @@ export const dict = {
   "settings.general.row.reasoningSummaries.title": "ကျိုးကြောင်းဆင်ခြင်ခြင်း အနှစ်ချုပ်များကို ပြပါ။",
   "settings.general.row.reasoningSummaries.description":
     "အချိန်ဇယားတွင် မော်ဒယ် ကျိုးကြောင်းဆင်ခြင်ခြင်း အနှစ်ချုပ်များကို ပြသပါ။",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "shell tool အစိတ်အပိုင်းများကို ချဲ့ပါ။",
   "settings.general.row.shellToolPartsExpanded.description":
     "အချိန်ဇယားတွင် ပုံသေဖြင့် ချဲ့ထားသော shell tool အစိတ်အပိုင်းများကို ပြပါ။",

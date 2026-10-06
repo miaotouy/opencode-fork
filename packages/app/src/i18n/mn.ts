@@ -973,6 +973,9 @@ export const dict = {
     "Хөгжмийн зохиолч дахь агентуудын хооронд шилжих. Нуусан үед өгөгдмөл нь Build agent.",
   "settings.general.row.reasoningSummaries.title": "Шалтгаануудын хураангуйг харуул",
   "settings.general.row.reasoningSummaries.description": "Загварын үндэслэлийн хураангуйг цагийн хуваарьт харуул",
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "shell хэрэгслийн хэсгүүдийг өргөжүүлэх",
   "settings.general.row.shellToolPartsExpanded.description":
     "Он цагийн хэлхээс дээр анхдагчаар өргөтгөсөн shell хэрэгслийн хэсгүүдийг харуул",

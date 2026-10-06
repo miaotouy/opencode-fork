@@ -952,6 +952,9 @@ export const dict = {
   "settings.general.row.reasoningSummaries.title": "Prikaži sažetke rasuđivanja",
   "settings.general.row.reasoningSummaries.description": "Prikaži sažetke rasuđivanja modela na vremenskoj traci",
 
+  "settings.general.row.reasoningSummariesExpanded.title": "Expand reasoning summaries",
+  "settings.general.row.reasoningSummariesExpanded.description":
+    "Show reasoning summaries expanded by default in the timeline",
   "settings.general.row.shellToolPartsExpanded.title": "Proširi dijelove shell alata",
   "settings.general.row.shellToolPartsExpanded.description":
     "Prikaži dijelove shell alata podrazumijevano proširene na vremenskoj traci",

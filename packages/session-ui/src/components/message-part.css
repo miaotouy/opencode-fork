@@ -323,6 +323,28 @@
   }
 }
 
+[data-component="reasoning-part"] {
+  [data-slot="reasoning-trigger"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 24px;
+    cursor: pointer;
+  }
+
+  [data-slot="reasoning-trigger-label"] {
+    min-width: 0;
+    color: var(--v2-text-text-muted);
+  }
+}
+
+[data-component="reasoning-part"] [data-component="collapsible"].reasoning-collapsible
+  [data-slot="collapsible-trigger"]
+  [data-slot="collapsible-arrow"] {
+  opacity: 1;
+}
+
 [data-component="tool-output"] {
   white-space: pre;
   padding: 0;

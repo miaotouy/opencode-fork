@@ -1093,6 +1093,7 @@ export function MessageTimeline(props: {
                 showAssistantCopyPartID={assistantCopyPartID(row().userMessageID)}
                 turnDurationMs={turnDurationMs(row().userMessageID)}
                 useV2Actions={settings.general.newLayoutDesigns()}
+                reasoningDefaultExpanded={settings.general.reasoningSummariesExpanded()}
                 defaultOpen={defaultOpen()}
                 toolOpen={toolOpen[part().id] ?? defaultOpen()}
                 onToolOpenChange={(open) => setToolOpen(part().id, open)}

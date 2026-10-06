@@ -30,6 +30,7 @@ export interface Settings {
     showStatus: boolean
     showTerminal: boolean
     showReasoningSummaries: boolean
+    reasoningSummariesExpanded: boolean
     shellToolPartsExpanded: boolean
     editToolPartsExpanded: boolean
     sessionTabWorkspacePrefix: boolean
@@ -193,6 +194,7 @@ const defaultSettings: Settings = {
     showStatus: false,
     showTerminal: false,
     showReasoningSummaries: false,
+    reasoningSummariesExpanded: true,
     shellToolPartsExpanded: false,
     editToolPartsExpanded: false,
     sessionTabWorkspacePrefix: true,
@@ -406,6 +408,13 @@ export const { use: useSettings, provider: SettingsProvider } = createSimpleCont
         ),
         setShowReasoningSummaries(value: boolean) {
           setStore("general", "showReasoningSummaries", value)
+        },
+        reasoningSummariesExpanded: withFallback(
+          () => store.general?.reasoningSummariesExpanded,
+          defaultSettings.general.reasoningSummariesExpanded,
+        ),
+        setReasoningSummariesExpanded(value: boolean) {
+          setStore("general", "reasoningSummariesExpanded", value)
         },
         shellToolPartsExpanded: withFallback(
           () => store.general?.shellToolPartsExpanded,
