@@ -1,12 +1,28 @@
-import { describe, expect, test } from "bun:test"
-import { fetchSessionExport, sessionExportFilename } from "./session-export"
-import type { Message, Part, Session } from "@opencode-ai/sdk/v2/client"
+import type { Message, Part, Session } from "@opencode-ai/sdk/v2/client";
+import { describe, expect, test } from "bun:test";
+
+import { fetchSessionExport, sessionExportFilename, sessionMarkdownFilename } from "./session-export";
+
 
 describe("sessionExportFilename", () => {
-  test("generates filename from title", () => {
+  test("keeps the first 32 characters of the title", () => {
     expect(sessionExportFilename({ id: "ses_123", title: "Clone PR in worktree from fork" })).toBe(
-      "clone-pr-in-worktree-from-fork.json",
+      "Clone-PR-in-work.json",
     )
+  })
+
+  test("preserves non-latin titles such as Chinese", () => {
+    expect(sessionExportFilename({ id: "ses_123", title: "修复导出文件名的问题" })).toBe("修复导出文件名的问题.json")
+  })
+
+  test("truncates long non-latin titles to 32 characters", () => {
+    expect(sessionExportFilename({ id: "ses_123", title: "这是一个非常非常非常长的会话标题名称" })).toBe(
+      "这是一个非常非常非常长的会话标题.json",
+    )
+  })
+
+  test("replaces filesystem-illegal characters", () => {
+    expect(sessionExportFilename({ id: "ses_123", title: "Fix: bug/issue" })).toBe("Fix-bug-issue.json")
   })
 
   test("generates filename from slug when title missing", () => {
@@ -15,6 +31,12 @@ describe("sessionExportFilename", () => {
 
   test("falls back to id when title and slug are empty", () => {
     expect(sessionExportFilename({ id: "ses_123" })).toBe("ses_123.json")
+  })
+})
+
+describe("sessionMarkdownFilename", () => {
+  test("swaps the extension for markdown exports", () => {
+    expect(sessionMarkdownFilename({ id: "ses_123", title: "修复导出" })).toBe("修复导出.md")
   })
 })
 

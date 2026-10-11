@@ -1,5 +1,7 @@
-import type { Message, Part, Session } from "@opencode-ai/sdk/v2/client"
-import { sessionToMarkdown } from "./session-markdown"
+import type { Message, Part, Session } from "@opencode-ai/sdk/v2/client";
+
+import { sessionToMarkdown } from "./session-markdown";
+
 
 // Matches the exact `{ info, messages: [{ info, parts }] }` structure produced by `opencode export` CLI
 export type SessionExportData = {
@@ -39,13 +41,24 @@ export async function fetchSessionExport(input: {
   }
 }
 
+const FILENAME_TITLE_LENGTH = 32
+
 export function sessionExportFilename(session: { id: string; title?: string; slug?: string }) {
-  const name = session.title || session.slug || session.id
-  const clean = name
-    .toLowerCase()
-    .replace(/[^a-z0-9_-]+/gi, "-")
-    .replace(/^-+|-+$/g, "")
-  return `${clean || session.id}.json`
+  const name = filenameSegment(session.title || session.slug || session.id)
+  return `${name || session.id}.json`
+}
+
+// Keep the first characters of the title, including non-latin scripts such as Chinese,
+// then replace the characters a filesystem would reject.
+function filenameSegment(input: string) {
+  return [...input.trim()]
+    .slice(0, FILENAME_TITLE_LENGTH)
+    .join("")
+    .replace(/[\u0000-\u001f\u007f]+/g, " ")
+    .replace(/[\\/:*?"<>|]+/g, "-")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^[-.]+|[-.]+$/g, "")
 }
 
 export function sessionMarkdownFilename(session: { id: string; title?: string; slug?: string }) {
