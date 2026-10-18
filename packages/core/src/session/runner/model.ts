@@ -11,6 +11,7 @@ import { produce } from "immer"
 import { Catalog } from "../../catalog"
 import { Credential } from "../../credential"
 import { Integration } from "../../integration"
+import { InstallationVersion } from "../../installation/version"
 import { ModelV2 } from "../../model"
 import { ProviderV2 } from "../../provider"
 import { SessionSchema } from "../schema"
@@ -95,7 +96,7 @@ const withDefaults = (model: ModelV2.Info, route: AnyRoute) => {
   return route.with({
     provider: model.providerID,
     endpoint: model.api.url === undefined ? undefined : { baseURL: model.api.url },
-    headers: model.request.headers,
+    headers: { "User-Agent": `opencode/${InstallationVersion}`, ...model.request.headers },
     http: { body: httpBody },
     limits: { context: model.limit.context, output: model.limit.output },
   })

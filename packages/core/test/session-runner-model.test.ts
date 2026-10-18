@@ -5,6 +5,7 @@ import { DateTime, Effect } from "effect"
 import { Headers } from "effect/unstable/http"
 import { Credential } from "@opencode-ai/core/credential"
 import { Integration } from "@opencode-ai/core/integration"
+import { InstallationVersion } from "@opencode-ai/core/installation/version"
 import { ModelV2 } from "@opencode-ai/core/model"
 import { ProviderV2 } from "@opencode-ai/core/provider"
 import { ProjectV2 } from "@opencode-ai/core/project"
@@ -53,7 +54,7 @@ describe("SessionRunnerModel", () => {
         id: "openai-responses",
         endpoint: { baseURL: "https://openai.example/v1" },
         defaults: {
-          headers: { "x-test": "header" },
+          headers: { "User-Agent": `opencode/${InstallationVersion}`, "x-test": "header" },
           limits: { context: 100, output: 20 },
           http: { body: { custom_extension: { enabled: true } } },
         },
