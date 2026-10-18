@@ -1,4 +1,5 @@
 #!/usr/bin/env bun
+import "./prepare"
 import { $ } from "bun"
 
 import { downloadCliToResources, resolveChannel } from "./utils"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import { Script } from "@opencode-ai/script"
 
-await import("./prebuild")
+process.env.OPENCODE_VERSION = Script.version
 
 const pkg = await Bun.file("./package.json").json()
 pkg.version = Script.version

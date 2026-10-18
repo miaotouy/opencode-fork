@@ -1,3 +1,4 @@
+import "./prepare"
 import { $ } from "bun"
 import { downloadCliToResources } from "./utils"
 
