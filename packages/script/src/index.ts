@@ -19,36 +19,34 @@ if (!semver.satisfies(process.versions.bun, expectedBunVersionRange)) {
 
 const env = {
   OPENCODE_CHANNEL: process.env["OPENCODE_CHANNEL"],
-  OPENCODE_BUMP: process.env["OPENCODE_BUMP"],
   OPENCODE_VERSION: process.env["OPENCODE_VERSION"],
-  OPENCODE_RELEASE: process.env["OPENCODE_RELEASE"],
 }
 const CHANNEL = await (async () => {
   if (env.OPENCODE_CHANNEL) return env.OPENCODE_CHANNEL
-  if (env.OPENCODE_BUMP) return "latest"
   if (env.OPENCODE_VERSION && !semver.prerelease(env.OPENCODE_VERSION)) return "latest"
-  return await $`git branch --show-current`.text().then((x) => x.trim())
+  const branch = await $`git branch --show-current`.text().then((x) => x.trim())
+  if (!branch) return "detached"
+  const channel = branch.replace(/[^a-zA-Z0-9._-]/g, "-")
+  if (/^[a-zA-Z0-9]/.test(channel)) return channel
+  return `branch-${channel}`
 })()
 const IS_PREVIEW = CHANNEL !== "latest"
 
+// The release workflow's plan job owns release versions; builds only read them.
 const VERSION = await (async () => {
   if (env.OPENCODE_VERSION) return env.OPENCODE_VERSION
-  if (IS_PREVIEW) {
-    const pkg = await Bun.file(path.resolve(import.meta.dir, "../../core/package.json")).json()
-    return `${pkg.version}-${CHANNEL}.${new Date().toISOString().slice(0, 16).replace(/[-:T]/g, "")}`
-  }
-  const version = await fetch("https://registry.npmjs.org/opencode-ai/latest")
-    .then((res) => {
-      if (!res.ok) throw new Error(res.statusText)
-      return res.json()
-    })
-    .then((data: any) => data.version)
-  const [major, minor, patch] = version.split(".").map((x: string) => Number(x) || 0)
-  const t = env.OPENCODE_BUMP?.toLowerCase()
-  if (t === "major") return `${major + 1}.0.0`
-  if (t === "minor") return `${major}.${minor + 1}.0`
-  return `${major}.${minor}.${patch + 1}`
+  if (!IS_PREVIEW) throw new Error("OPENCODE_VERSION is required for latest-channel builds")
+  const pkg = await Bun.file(path.resolve(import.meta.dir, "../../core/package.json")).json()
+  return `${pkg.version}-${CHANNEL}.${previewBuildNumber()}`
 })()
+
+function previewBuildNumber() {
+  const runNumber = process.env["GITHUB_RUN_NUMBER"]
+  if (!runNumber) return new Date().toISOString().slice(0, 16).replace(/[-:T]/g, "")
+  const runAttempt = process.env["GITHUB_RUN_ATTEMPT"]
+  if (runAttempt && runAttempt !== "1") return `${runNumber}.${runAttempt}`
+  return runNumber
+}
 
 const bot = ["actions-user", "opencode", "opencode-agent[bot]"]
 const teamPath = path.resolve(import.meta.dir, "../../../.github/TEAM_MEMBERS")
@@ -69,9 +67,6 @@ export const Script = {
   },
   get preview() {
     return IS_PREVIEW
-  },
-  get release(): boolean {
-    return !!env.OPENCODE_RELEASE
   },
   get team() {
     return team

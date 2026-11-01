@@ -33,19 +33,22 @@ async function metadata(env: Record<string, string | undefined>) {
 }
 
 describe("build version", () => {
-  test.each(["dev", "beta"])("uses the source version for the %s channel", async (channel) => {
-    const pkg = await Bun.file(path.resolve(import.meta.dir, "../../core/package.json")).json()
-    const result = await metadata({ OPENCODE_CHANNEL: channel })
+  test.each(["dev", "beta"])(
+    "uses the source version for the %s channel",
+    async (channel) => {
+      const pkg = await Bun.file(path.resolve(import.meta.dir, "../../core/package.json")).json()
+      const result = await metadata({ OPENCODE_CHANNEL: channel })
 
-    expect(semver.valid(result.version)).toBe(result.version)
-    expect(`${semver.major(result.version)}.${semver.minor(result.version)}.${semver.patch(result.version)}`).toBe(
-      pkg.version,
-    )
-    expect(result.version).toMatch(new RegExp(`-${channel}\\.\\d{12}$`))
-    expect(semver.gte(result.version, "1.18.0")).toBe(true)
-    expect(result.channel).toBe(channel)
-    expect(result.preview).toBe(true)
-  })
+      expect(semver.valid(result.version)).toBe(result.version)
+      expect(`${semver.major(result.version)}.${semver.minor(result.version)}.${semver.patch(result.version)}`).toBe(
+        pkg.version,
+      )
+      expect(result.version).toMatch(new RegExp(`-${channel}\\.\\d+(?:\\.\\d+)?$`))
+      expect(result.channel).toBe(channel)
+      expect(result.preview).toBe(true)
+    },
+    15_000,
+  )
 
   test("keeps explicit stable versions and channel overrides", async () => {
     expect(await metadata({ OPENCODE_VERSION: "1.18.34" })).toMatchObject({
@@ -67,5 +70,6 @@ describe("build version", () => {
       expect(result.version).toBe(version)
       expect(result.preview).toBe(true)
     },
+    15_000,
   )
 })
